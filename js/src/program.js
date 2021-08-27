@@ -5,7 +5,7 @@ export class Program {
       `Lived ${mother(0)}\n` +
       `And her little ${children(0)} ${numberToWord(0)}.\n` +
       `\"${action(0)}!\" said the mother;\n` +
-      "\"I jump!\" said the one.\n" +
+      `\"I ${action(0).toLowerCase()}!\" said the one.\n` +
       "So they jumped and they jumped,\n" +
       "In the sand in the sun.\n" +
       "\n" +
@@ -14,7 +14,7 @@ export class Program {
       `Lived ${mother(1)}\n` +
       `And her little ${children(1)} ${numberToWord(1)}.\n` +
       `\"${action(1)}!\" said the mother;\n` +
-      "\"We swim!\" said the two.\n" +
+      `\"We ${action(1).toLowerCase()}!\" said the two.\n` +
       "So they swam and they swam,\n" +
       "Where the stream runs blue.\n" +
       "\n" +
@@ -23,7 +23,7 @@ export class Program {
       `Lived ${mother(2)}\n` +
       `And her little ${children(2)} ${numberToWord(2)}.\n` +
       `\"${action(2)}!\" said the mother;\n` +
-      "\"We sing!\" said the three.\n" +
+      `\"We ${action(2).toLowerCase()}!\" said the three.\n` +
       "So they sang and they sang,\n" +
       "In their home in a tree.\n" +
       "\n" +
@@ -32,7 +32,7 @@ export class Program {
       `Lived ${mother(3)}\n` +
       `And her little ${children(3)} ${numberToWord(3)}.\n` +
       `\"${action(3)}!\" said the mother;\n` +
-      "\"We dive!\" said the four.\n" +
+      `\"We ${action(3).toLowerCase()}!\" said the four.\n` +
       "So they dived and they splashed,\n" +
       "By the reeds on the shore.\n" +
       "\n" +
@@ -41,7 +41,7 @@ export class Program {
       `Lived ${mother(4)}\n` +
       `And her little ${children(4)} ${numberToWord(4)}.\n` +
       `\"${action(4)}!\" said the mother;\n` +
-      "\"We buzz!\" said the five.\n" +
+      `\"We ${action(4).toLowerCase()}!\" said the five.\n` +
       "So they buzzed and they buzzed,\n" +
       "In their snug beehive.\n" +
       "\n" +
@@ -50,7 +50,7 @@ export class Program {
       `Lived ${mother(5)}\n` +
       `And her little ${children(5)} ${numberToWord(5)}.\n` +
       `\"${action(5)}!\" said the mother;\n` +
-      "\"We caw!\" said the six.\n" +
+      `\"We ${action(5).toLowerCase()}!\" said the six.\n` +
       "So they cawed and they cawed,\n" +
       "In their nest made of sticks.\n" +
       "\n" +
@@ -59,7 +59,7 @@ export class Program {
       `Lived ${mother(6)}\n` +
       `And her little ${children(6)} ${numberToWord(6)}.\n` +
       `\"${action(6)}!\" said the mother;\n` +
-      "\"We chirp!\" said the seven.\n" +
+      `\"We ${action(6).toLowerCase()}!\" said the seven.\n` +
       "So they chirped cheery notes,\n" +
       "In the grass soft and even.\n" +
       "\n" +
@@ -68,7 +68,7 @@ export class Program {
       `Lived ${mother(7)}\n` +
       `And her little ${children(7)} ${numberToWord(7)}.\n` +
       `\"${action(7)}!\" said the mother;\n` +
-      "\"We bask!\" said the eight.\n" +
+      `\"We ${action(7).toLowerCase()}!\" said the eight.\n` +
       "So they basked, and they basked,\n" +
       "On the old mossy gate.\n" +
       "\n" +
@@ -77,7 +77,7 @@ export class Program {
       `Lived ${mother(8)}\n` +
       `And her little ${children(8)} ${numberToWord(8)}.\n` +
       `\"${action(8)}!\" said the mother;\n` +
-      "\"We croak!\" said the nine.\n" +
+      `\"We ${action(8).toLowerCase()}!\" said the nine.\n` +
       "So they croaked and they croaked,\n" +
       "Where the cool pools shine.\n" +
       "\n" +
@@ -86,7 +86,7 @@ export class Program {
       `Lived ${mother(9)}\n` +
       `And her little ${children(9)} ${numberToWord(9)}.\n` +
       `\"${action(9)}!\" said the mother;\n` +
-      "\"We spin!\" said the ten.\n" +
+      `\"We ${action(9).toLowerCase()}!\" said the ten.\n` +
       "So they spun silken webs,\n" +
       "In their sly little den."
   }
