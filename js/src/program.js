@@ -66,19 +66,6 @@ function children(number) {
   if (number == 9) return "spiders";
 }
 
-function numberOfChildren(number) {
-  if (number == 1) return "one";
-  if (number == 2) return "two";
-  if (number == 3) return "three";
-  if (number == 4) return "four";
-  if (number == 5) return "five";
-  if (number == 6) return "six";
-  if (number == 7) return "seven";
-  if (number == 8) return "eight";
-  if (number == 9) return "nine";
-  if (number == 10) return "ten";
-}
-
 function action(number) {
   if (number == 0) return "jump";
   if (number == 1) return "swim";
@@ -103,6 +90,19 @@ function actionDone(number) {
   if (number == 7) return "basked, and they basked";
   if (number == 8) return "croaked and they croaked";
   if (number == 9) return "spun silken webs";
+}
+
+function numberOfChildren(number) {
+  if (number == 1) return "one";
+  if (number == 2) return "two";
+  if (number == 3) return "three";
+  if (number == 4) return "four";
+  if (number == 5) return "five";
+  if (number == 6) return "six";
+  if (number == 7) return "seven";
+  if (number == 8) return "eight";
+  if (number == 9) return "nine";
+  if (number == 10) return "ten";
 }
 
 function pronoun(number) {
