@@ -1,3 +1,5 @@
+const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
+
 export class Program {
   song() {
     var result = [];
@@ -7,8 +9,8 @@ export class Program {
         `${location(i, true)},\n` +
         `Lived ${mother(i)}\n` +
         `And her little ${children(i)} ${numberOfChildren(i + 1)}.\n` +
-        `\"${action(i)}!\" said the mother;\n` +
-        `\"${pronoun(i + 1)} ${action(i).toLowerCase()}!\" said the ${numberOfChildren(i + 1)}.\n` +
+        `\"${capitalize(action(i))}!\" said the mother;\n` +
+        `\"${pronoun(i + 1)} ${action(i)}!\" said the ${numberOfChildren(i + 1)}.\n` +
         `So they ${actionDone(i)},\n` +
         `${location(i)}.`
       );
@@ -78,16 +80,16 @@ function numberOfChildren(number) {
 }
 
 function action(number) {
-  if (number == 0) return "Jump";
-  if (number == 1) return "Swim";
-  if (number == 2) return "Sing";
-  if (number == 3) return "Dive";
-  if (number == 4) return "Buzz";
-  if (number == 5) return "Caw";
-  if (number == 6) return "Chirp";
-  if (number == 7) return "Bask";
-  if (number == 8) return "Croak";
-  if (number == 9) return "Spin";
+  if (number == 0) return "jump";
+  if (number == 1) return "swim";
+  if (number == 2) return "sing";
+  if (number == 3) return "dive";
+  if (number == 4) return "buzz";
+  if (number == 5) return "caw";
+  if (number == 6) return "chirp";
+  if (number == 7) return "bask";
+  if (number == 8) return "croak";
+  if (number == 9) return "spin";
 }
 
 function actionDone(number) {
