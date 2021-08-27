@@ -1,94 +1,19 @@
 export class Program {
   song() {
-    return "Over in the meadow,\n" +
-      `${location(0, true)},\n` +
-      `Lived ${mother(0)}\n` +
-      `And her little ${children(0)} ${numberOfChildren(1)}.\n` +
-      `\"${action(0)}!\" said the mother;\n` +
-      `\"${pronoun(1)} ${action(0).toLowerCase()}!\" said the ${numberOfChildren(1)}.\n` +
-      `So they ${actionDone(0)},\n` +
-      `${location(0)}.\n` +
-      "\n" +
-      "Over in the meadow,\n" +
-      `${location(1, true)},\n` +
-      `Lived ${mother(1)}\n` +
-      `And her little ${children(1)} ${numberOfChildren(2)}.\n` +
-      `\"${action(1)}!\" said the mother;\n` +
-      `\"${pronoun(2)} ${action(1).toLowerCase()}!\" said the ${numberOfChildren(2)}.\n` +
-      `So they ${actionDone(1)},\n` +
-      `${location(1)}.\n` +
-      "\n" +
-      "Over in the meadow,\n" +
-      `${location(2, true)},\n` +
-      `Lived ${mother(2)}\n` +
-      `And her little ${children(2)} ${numberOfChildren(3)}.\n` +
-      `\"${action(2)}!\" said the mother;\n` +
-      `\"${pronoun(3)} ${action(2).toLowerCase()}!\" said the ${numberOfChildren(3)}.\n` +
-      `So they ${actionDone(2)},\n` +
-      `${location(2)}.\n` +
-      "\n" +
-      "Over in the meadow,\n" +
-      `${location(3, true)},\n` +
-      `Lived ${mother(3)}\n` +
-      `And her little ${children(3)} ${numberOfChildren(4)}.\n` +
-      `\"${action(3)}!\" said the mother;\n` +
-      `\"${pronoun(4)} ${action(3).toLowerCase()}!\" said the ${numberOfChildren(4)}.\n` +
-      `So they ${actionDone(3)},\n` +
-      `${location(3)}.\n` +
-      "\n" +
-      "Over in the meadow,\n" +
-      `${location(4, true)},\n` +
-      `Lived ${mother(4)}\n` +
-      `And her little ${children(4)} ${numberOfChildren(5)}.\n` +
-      `\"${action(4)}!\" said the mother;\n` +
-      `\"${pronoun(5)} ${action(4).toLowerCase()}!\" said the ${numberOfChildren(5)}.\n` +
-      `So they ${actionDone(4)},\n` +
-      `${location(4)}.\n` +
-      "\n" +
-      "Over in the meadow,\n" +
-      `${location(5, true)},\n` +
-      `Lived ${mother(5)}\n` +
-      `And her little ${children(5)} ${numberOfChildren(6)}.\n` +
-      `\"${action(5)}!\" said the mother;\n` +
-      `\"${pronoun(6)} ${action(5).toLowerCase()}!\" said the ${numberOfChildren(6)}.\n` +
-      `So they ${actionDone(5)},\n` +
-      `${location(5)}.\n` +
-      "\n" +
-      "Over in the meadow,\n" +
-      `${location(6, true)},\n` +
-      `Lived ${mother(6)}\n` +
-      `And her little ${children(6)} ${numberOfChildren(7)}.\n` +
-      `\"${action(6)}!\" said the mother;\n` +
-      `\"${pronoun(7)} ${action(6).toLowerCase()}!\" said the ${numberOfChildren(7)}.\n` +
-      `So they ${actionDone(6)},\n` +
-      `${location(6)}.\n` +
-      "\n" +
-      "Over in the meadow,\n" +
-      `${location(7, true)},\n` +
-      `Lived ${mother(7)}\n` +
-      `And her little ${children(7)} ${numberOfChildren(8)}.\n` +
-      `\"${action(7)}!\" said the mother;\n` +
-      `\"${pronoun(8)} ${action(7).toLowerCase()}!\" said the ${numberOfChildren(8)}.\n` +
-      `So they ${actionDone(7)},\n` +
-      `${location(7)}.\n` +
-      "\n" +
-      "Over in the meadow,\n" +
-      `${location(8, true)},\n` +
-      `Lived ${mother(8)}\n` +
-      `And her little ${children(8)} ${numberOfChildren(9)}.\n` +
-      `\"${action(8)}!\" said the mother;\n` +
-      `\"${pronoun(9)} ${action(8).toLowerCase()}!\" said the ${numberOfChildren(9)}.\n` +
-      `So they ${actionDone(8)},\n` +
-      `${location(8)}.\n` +
-      "\n" +
-      "Over in the meadow,\n" +
-      `${location(9, true)},\n` +
-      `Lived ${mother(9)}\n` +
-      `And her little ${children(9)} ${numberOfChildren(10)}.\n` +
-      `\"${action(9)}!\" said the mother;\n` +
-      `\"${pronoun(10)} ${action(9).toLowerCase()}!\" said the ${numberOfChildren(10)}.\n` +
-      `So they ${actionDone(9)},\n` +
-      `${location(9)}.`
+    var result = [];
+    for (let i = 0; i < 10; i++) {
+      result.push(
+        "Over in the meadow,\n" +
+        `${location(i, true)},\n` +
+        `Lived ${mother(i)}\n` +
+        `And her little ${children(i)} ${numberOfChildren(i + 1)}.\n` +
+        `\"${action(i)}!\" said the mother;\n` +
+        `\"${pronoun(i + 1)} ${action(i).toLowerCase()}!\" said the ${numberOfChildren(i + 1)}.\n` +
+        `So they ${actionDone(i)},\n` +
+        `${location(i)}.`
+      );
+    }
+    return result.join("\n\n");
   }
 }
 
