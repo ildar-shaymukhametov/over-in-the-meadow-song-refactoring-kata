@@ -4,7 +4,7 @@ export class Program {
       `${location(0)},\n` +
       `Lived ${mother(0)}\n` +
       `And her little ${children(0)} ${numberToWord(0)}.\n` +
-      "\"Jump!\" said the mother;\n" +
+      `\"${action(0)}!\" said the mother;\n` +
       "\"I jump!\" said the one.\n" +
       "So they jumped and they jumped,\n" +
       "In the sand in the sun.\n" +
@@ -13,7 +13,7 @@ export class Program {
       `${location(1)},\n` +
       `Lived ${mother(1)}\n` +
       `And her little ${children(1)} ${numberToWord(1)}.\n` +
-      "\"Swim!\" said the mother;\n" +
+      `\"${action(1)}!\" said the mother;\n` +
       "\"We swim!\" said the two.\n" +
       "So they swam and they swam,\n" +
       "Where the stream runs blue.\n" +
@@ -22,7 +22,7 @@ export class Program {
       `${location(2)},\n` +
       `Lived ${mother(2)}\n` +
       `And her little ${children(2)} ${numberToWord(2)}.\n` +
-      "\"Sing!\" said the mother;\n" +
+      `\"${action(2)}!\" said the mother;\n` +
       "\"We sing!\" said the three.\n" +
       "So they sang and they sang,\n" +
       "In their home in a tree.\n" +
@@ -31,7 +31,7 @@ export class Program {
       `${location(3)},\n` +
       `Lived ${mother(3)}\n` +
       `And her little ${children(3)} ${numberToWord(3)}.\n` +
-      "\"Dive!\" said the mother;\n" +
+      `\"${action(3)}!\" said the mother;\n` +
       "\"We dive!\" said the four.\n" +
       "So they dived and they splashed,\n" +
       "By the reeds on the shore.\n" +
@@ -40,7 +40,7 @@ export class Program {
       `${location(4)},\n` +
       `Lived ${mother(4)}\n` +
       `And her little ${children(4)} ${numberToWord(4)}.\n` +
-      "\"Buzz!\" said the mother;\n" +
+      `\"${action(4)}!\" said the mother;\n` +
       "\"We buzz!\" said the five.\n" +
       "So they buzzed and they buzzed,\n" +
       "In their snug beehive.\n" +
@@ -49,7 +49,7 @@ export class Program {
       `${location(5)},\n` +
       `Lived ${mother(5)}\n` +
       `And her little ${children(5)} ${numberToWord(5)}.\n` +
-      "\"Caw!\" said the mother;\n" +
+      `\"${action(5)}!\" said the mother;\n` +
       "\"We caw!\" said the six.\n" +
       "So they cawed and they cawed,\n" +
       "In their nest made of sticks.\n" +
@@ -58,7 +58,7 @@ export class Program {
       `${location(6)},\n` +
       `Lived ${mother(6)}\n` +
       `And her little ${children(6)} ${numberToWord(6)}.\n` +
-      "\"Chirp!\" said the mother;\n" +
+      `\"${action(6)}!\" said the mother;\n` +
       "\"We chirp!\" said the seven.\n" +
       "So they chirped cheery notes,\n" +
       "In the grass soft and even.\n" +
@@ -67,7 +67,7 @@ export class Program {
       `${location(7)},\n` +
       `Lived ${mother(7)}\n` +
       `And her little ${children(7)} ${numberToWord(7)}.\n` +
-      "\"Bask!\" said the mother;\n" +
+      `\"${action(7)}!\" said the mother;\n` +
       "\"We bask!\" said the eight.\n" +
       "So they basked, and they basked,\n" +
       "On the old mossy gate.\n" +
@@ -76,7 +76,7 @@ export class Program {
       `${location(8)},\n` +
       `Lived ${mother(8)}\n` +
       `And her little ${children(8)} ${numberToWord(8)}.\n` +
-      "\"Croak!\" said the mother;\n" +
+      `\"${action(8)}!\" said the mother;\n` +
       "\"We croak!\" said the nine.\n" +
       "So they croaked and they croaked,\n" +
       "Where the cool pools shine.\n" +
@@ -85,7 +85,7 @@ export class Program {
       `${location(9)},\n` +
       `Lived ${mother(9)}\n` +
       `And her little ${children(9)} ${numberToWord(9)}.\n` +
-      "\"Spin!\" said the mother;\n" +
+      `\"${action(9)}!\" said the mother;\n` +
       "\"We spin!\" said the ten.\n" +
       "So they spun silken webs,\n" +
       "In their sly little den."
@@ -142,4 +142,17 @@ function numberToWord(number) {
   if (number == 7) return "eight";
   if (number == 8) return "nine";
   if (number == 9) return "ten";
+}
+
+function action(number) {
+  if (number == 0) return "Jump";
+  if (number == 1) return "Swim";
+  if (number == 2) return "Sing";
+  if (number == 3) return "Dive";
+  if (number == 4) return "Buzz";
+  if (number == 5) return "Caw";
+  if (number == 6) return "Chirp";
+  if (number == 7) return "Bask";
+  if (number == 8) return "Croak";
+  if (number == 9) return "Spin";
 }
