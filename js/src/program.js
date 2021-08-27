@@ -1,7 +1,7 @@
 export class Program {
   song() {
     return "Over in the meadow,\n" +
-      "In the sand, in the sun,\n" +
+      `${location(0)},\n` +
       "Lived an old mother toadie\n" +
       "And her little toadie one.\n" +
       "\"Jump!\" said the mother;\n" +
@@ -10,7 +10,7 @@ export class Program {
       "In the sand in the sun.\n" +
       "\n" +
       "Over in the meadow,\n" +
-      "Where the stream runs blue,\n" +
+      `${location(1)},\n` +
       "Lived an old mother fish\n" +
       "And her little fishes two.\n" +
       "\"Swim!\" said the mother;\n" +
@@ -19,7 +19,7 @@ export class Program {
       "Where the stream runs blue.\n" +
       "\n" +
       "Over in the meadow,\n" +
-      "In a hole in a tree,\n" +
+      `${location(2)},\n` +
       "Lived an old mother bluebird\n" +
       "And her little birdies three.\n" +
       "\"Sing!\" said the mother;\n" +
@@ -28,7 +28,7 @@ export class Program {
       "In their home in a tree.\n" +
       "\n" +
       "Over in the meadow,\n" +
-      "By the reeds on the shore,\n" +
+      `${location(3)},\n` +
       "Lived an old mother muskrat\n" +
       "And her little ratties four.\n" +
       "\"Dive!\" said the mother;\n" +
@@ -37,7 +37,7 @@ export class Program {
       "By the reeds on the shore.\n" +
       "\n" +
       "Over in the meadow,\n" +
-      "In a snug beehive,\n" +
+      `${location(4)},\n` +
       "Lived a mother honey bee\n" +
       "And her little honies five.\n" +
       "\"Buzz!\" said the mother;\n" +
@@ -46,7 +46,7 @@ export class Program {
       "In their snug beehive.\n" +
       "\n" +
       "Over in the meadow,\n" +
-      "In a nest made of sticks,\n" +
+      `${location(5)},\n` +
       "Lived a black mother crow\n" +
       "And her little crows six.\n" +
       "\"Caw!\" said the mother;\n" +
@@ -55,7 +55,7 @@ export class Program {
       "In their nest made of sticks.\n" +
       "\n" +
       "Over in the meadow,\n" +
-      "In the grass soft and even,\n" +
+      `${location(6)},\n` +
       "Lived a mother cricket\n" +
       "And her little crickets seven.\n" +
       "\"Chirp!\" said the mother;\n" +
@@ -64,7 +64,7 @@ export class Program {
       "In the grass soft and even.\n" +
       "\n" +
       "Over in the meadow,\n" +
-      "On an old mossy gate,\n" +
+      `${location(7)},\n` +
       "Lived a brown mother lizard\n" +
       "And her little lizards eight.\n" +
       "\"Bask!\" said the mother;\n" +
@@ -73,7 +73,7 @@ export class Program {
       "On the old mossy gate.\n" +
       "\n" +
       "Over in the meadow,\n" +
-      "Where the cool pools shine,\n" +
+      `${location(8)},\n` +
       "Lived a green mother frog\n" +
       "And her little froggies nine.\n" +
       "\"Croak!\" said the mother;\n" +
@@ -82,7 +82,7 @@ export class Program {
       "Where the cool pools shine.\n" +
       "\n" +
       "Over in the meadow,\n" +
-      "In a sly little den,\n" +
+      `${location(9)},\n` +
       "Lived a gray mother spider\n" +
       "And her little spiders ten.\n" +
       "\"Spin!\" said the mother;\n" +
@@ -90,4 +90,17 @@ export class Program {
       "So they spun silken webs,\n" +
       "In their sly little den."
   }
+}
+
+function location(number) {
+  if (number == 0) return "In the sand, in the sun";
+  if (number == 1) return "Where the stream runs blue";
+  if (number == 2) return "In a hole in a tree";
+  if (number == 3) return "By the reeds on the shore";
+  if (number == 4) return "In a snug beehive";
+  if (number == 5) return "In a nest made of sticks";
+  if (number == 6) return "In the grass soft and even";
+  if (number == 7) return "On an old mossy gate";
+  if (number == 8) return "Where the cool pools shine";
+  if (number == 9) return "In a sly little den";
 }
