@@ -6,7 +6,7 @@ export class Program {
       `And her little ${children(0)} ${numberToWord(1)}.\n` +
       `\"${action(0)}!\" said the mother;\n` +
       `\"${pronoun(1)} ${action(0).toLowerCase()}!\" said the ${numberToWord(1)}.\n` +
-      "So they jumped and they jumped,\n" +
+      `So they ${actionDone(0)},\n` +
       "In the sand in the sun.\n" +
       "\n" +
       "Over in the meadow,\n" +
@@ -15,7 +15,7 @@ export class Program {
       `And her little ${children(1)} ${numberToWord(2)}.\n` +
       `\"${action(1)}!\" said the mother;\n` +
       `\"${pronoun(2)} ${action(1).toLowerCase()}!\" said the ${numberToWord(2)}.\n` +
-      "So they swam and they swam,\n" +
+      `So they ${actionDone(1)},\n` +
       "Where the stream runs blue.\n" +
       "\n" +
       "Over in the meadow,\n" +
@@ -24,7 +24,7 @@ export class Program {
       `And her little ${children(2)} ${numberToWord(3)}.\n` +
       `\"${action(2)}!\" said the mother;\n` +
       `\"${pronoun(3)} ${action(2).toLowerCase()}!\" said the ${numberToWord(3)}.\n` +
-      "So they sang and they sang,\n" +
+      `So they ${actionDone(2)},\n` +
       "In their home in a tree.\n" +
       "\n" +
       "Over in the meadow,\n" +
@@ -33,7 +33,7 @@ export class Program {
       `And her little ${children(3)} ${numberToWord(4)}.\n` +
       `\"${action(3)}!\" said the mother;\n` +
       `\"${pronoun(4)} ${action(3).toLowerCase()}!\" said the ${numberToWord(4)}.\n` +
-      "So they dived and they splashed,\n" +
+      `So they ${actionDone(3)},\n` +
       "By the reeds on the shore.\n" +
       "\n" +
       "Over in the meadow,\n" +
@@ -42,7 +42,7 @@ export class Program {
       `And her little ${children(4)} ${numberToWord(5)}.\n` +
       `\"${action(4)}!\" said the mother;\n` +
       `\"${pronoun(5)} ${action(4).toLowerCase()}!\" said the ${numberToWord(5)}.\n` +
-      "So they buzzed and they buzzed,\n" +
+      `So they ${actionDone(4)},\n` +
       "In their snug beehive.\n" +
       "\n" +
       "Over in the meadow,\n" +
@@ -51,7 +51,7 @@ export class Program {
       `And her little ${children(5)} ${numberToWord(6)}.\n` +
       `\"${action(5)}!\" said the mother;\n` +
       `\"${pronoun(6)} ${action(5).toLowerCase()}!\" said the ${numberToWord(6)}.\n` +
-      "So they cawed and they cawed,\n" +
+      `So they ${actionDone(5)},\n` +
       "In their nest made of sticks.\n" +
       "\n" +
       "Over in the meadow,\n" +
@@ -60,7 +60,7 @@ export class Program {
       `And her little ${children(6)} ${numberToWord(7)}.\n` +
       `\"${action(6)}!\" said the mother;\n` +
       `\"${pronoun(7)} ${action(6).toLowerCase()}!\" said the ${numberToWord(7)}.\n` +
-      "So they chirped cheery notes,\n" +
+      `So they ${actionDone(6)},\n` +
       "In the grass soft and even.\n" +
       "\n" +
       "Over in the meadow,\n" +
@@ -69,7 +69,7 @@ export class Program {
       `And her little ${children(7)} ${numberToWord(8)}.\n` +
       `\"${action(7)}!\" said the mother;\n` +
       `\"${pronoun(8)} ${action(7).toLowerCase()}!\" said the ${numberToWord(8)}.\n` +
-      "So they basked, and they basked,\n" +
+      `So they ${actionDone(7)},\n` +
       "On the old mossy gate.\n" +
       "\n" +
       "Over in the meadow,\n" +
@@ -78,7 +78,7 @@ export class Program {
       `And her little ${children(8)} ${numberToWord(9)}.\n` +
       `\"${action(8)}!\" said the mother;\n` +
       `\"${pronoun(9)} ${action(8).toLowerCase()}!\" said the ${numberToWord(9)}.\n` +
-      "So they croaked and they croaked,\n" +
+      `So they ${actionDone(8)},\n` +
       "Where the cool pools shine.\n" +
       "\n" +
       "Over in the meadow,\n" +
@@ -87,7 +87,7 @@ export class Program {
       `And her little ${children(9)} ${numberToWord(10)}.\n` +
       `\"${action(9)}!\" said the mother;\n` +
       `\"${pronoun(10)} ${action(9).toLowerCase()}!\" said the ${numberToWord(10)}.\n` +
-      "So they spun silken webs,\n" +
+      `So they ${actionDone(9)},\n` +
       "In their sly little den."
   }
 }
@@ -155,6 +155,19 @@ function action(number) {
   if (number == 7) return "Bask";
   if (number == 8) return "Croak";
   if (number == 9) return "Spin";
+}
+
+function actionDone(number) {
+  if (number == 0) return "jumped and they jumped";
+  if (number == 1) return "swam and they swam";
+  if (number == 2) return "sang and they sang";
+  if (number == 3) return "dived and they splashed";
+  if (number == 4) return "buzzed and they buzzed";
+  if (number == 5) return "cawed and they cawed";
+  if (number == 6) return "chirped cheery notes";
+  if (number == 7) return "basked, and they basked";
+  if (number == 8) return "croaked and they croaked";
+  if (number == 9) return "spun silken webs";
 }
 
 function pronoun(number) {
