@@ -3,7 +3,7 @@ import { Program } from "../src/program";
 test("song", () => {
   expect(new Program().song()).toEqual(
     "Over in the meadow,\n" +
-    "In the sand, in the sun,\n" +
+    "In the sand in the sun,\n" +
     "Lived an old mother toadie\n" +
     "And her little toadie one.\n" +
     "\"Jump!\" said the mother;\n" +
@@ -27,7 +27,7 @@ test("song", () => {
     "\"Sing!\" said the mother;\n" +
     "\"We sing!\" said the three.\n" +
     "So they sang and they sang,\n" +
-    "In their home in a tree.\n" +
+    "In their hole in a tree.\n" +
     "\n" +
     "Over in the meadow,\n" +
     "By the reeds on the shore,\n" +
@@ -66,7 +66,7 @@ test("song", () => {
     "In the grass soft and even.\n" +
     "\n" +
     "Over in the meadow,\n" +
-    "On an old mossy gate,\n" +
+    "On the old mossy gate,\n" +
     "Lived a brown mother lizard\n" +
     "And her little lizards eight.\n" +
     "\"Bask!\" said the mother;\n" +

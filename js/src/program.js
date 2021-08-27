@@ -1,108 +1,116 @@
 export class Program {
   song() {
     return "Over in the meadow,\n" +
-      `${location(0)},\n` +
+      `${location(0, true)},\n` +
       `Lived ${mother(0)}\n` +
       `And her little ${children(0)} ${numberToWord(1)}.\n` +
       `\"${action(0)}!\" said the mother;\n` +
       `\"${pronoun(1)} ${action(0).toLowerCase()}!\" said the ${numberToWord(1)}.\n` +
       `So they ${actionDone(0)},\n` +
-      "In the sand in the sun.\n" +
+      `${location(0)}.\n` +
       "\n" +
       "Over in the meadow,\n" +
-      `${location(1)},\n` +
+      `${location(1, true)},\n` +
       `Lived ${mother(1)}\n` +
       `And her little ${children(1)} ${numberToWord(2)}.\n` +
       `\"${action(1)}!\" said the mother;\n` +
       `\"${pronoun(2)} ${action(1).toLowerCase()}!\" said the ${numberToWord(2)}.\n` +
       `So they ${actionDone(1)},\n` +
-      "Where the stream runs blue.\n" +
+      `${location(1)}.\n` +
       "\n" +
       "Over in the meadow,\n" +
-      `${location(2)},\n` +
+      `${location(2, true)},\n` +
       `Lived ${mother(2)}\n` +
       `And her little ${children(2)} ${numberToWord(3)}.\n` +
       `\"${action(2)}!\" said the mother;\n` +
       `\"${pronoun(3)} ${action(2).toLowerCase()}!\" said the ${numberToWord(3)}.\n` +
       `So they ${actionDone(2)},\n` +
-      "In their home in a tree.\n" +
+      `${location(2)}.\n` +
       "\n" +
       "Over in the meadow,\n" +
-      `${location(3)},\n` +
+      `${location(3, true)},\n` +
       `Lived ${mother(3)}\n` +
       `And her little ${children(3)} ${numberToWord(4)}.\n` +
       `\"${action(3)}!\" said the mother;\n` +
       `\"${pronoun(4)} ${action(3).toLowerCase()}!\" said the ${numberToWord(4)}.\n` +
       `So they ${actionDone(3)},\n` +
-      "By the reeds on the shore.\n" +
+      `${location(3)}.\n` +
       "\n" +
       "Over in the meadow,\n" +
-      `${location(4)},\n` +
+      `${location(4, true)},\n` +
       `Lived ${mother(4)}\n` +
       `And her little ${children(4)} ${numberToWord(5)}.\n` +
       `\"${action(4)}!\" said the mother;\n` +
       `\"${pronoun(5)} ${action(4).toLowerCase()}!\" said the ${numberToWord(5)}.\n` +
       `So they ${actionDone(4)},\n` +
-      "In their snug beehive.\n" +
+      `${location(4)}.\n` +
       "\n" +
       "Over in the meadow,\n" +
-      `${location(5)},\n` +
+      `${location(5, true)},\n` +
       `Lived ${mother(5)}\n` +
       `And her little ${children(5)} ${numberToWord(6)}.\n` +
       `\"${action(5)}!\" said the mother;\n` +
       `\"${pronoun(6)} ${action(5).toLowerCase()}!\" said the ${numberToWord(6)}.\n` +
       `So they ${actionDone(5)},\n` +
-      "In their nest made of sticks.\n" +
+      `${location(5)}.\n` +
       "\n" +
       "Over in the meadow,\n" +
-      `${location(6)},\n` +
+      `${location(6, true)},\n` +
       `Lived ${mother(6)}\n` +
       `And her little ${children(6)} ${numberToWord(7)}.\n` +
       `\"${action(6)}!\" said the mother;\n` +
       `\"${pronoun(7)} ${action(6).toLowerCase()}!\" said the ${numberToWord(7)}.\n` +
       `So they ${actionDone(6)},\n` +
-      "In the grass soft and even.\n" +
+      `${location(6)}.\n` +
       "\n" +
       "Over in the meadow,\n" +
-      `${location(7)},\n` +
+      `${location(7, true)},\n` +
       `Lived ${mother(7)}\n` +
       `And her little ${children(7)} ${numberToWord(8)}.\n` +
       `\"${action(7)}!\" said the mother;\n` +
       `\"${pronoun(8)} ${action(7).toLowerCase()}!\" said the ${numberToWord(8)}.\n` +
       `So they ${actionDone(7)},\n` +
-      "On the old mossy gate.\n" +
+      `${location(7)}.\n` +
       "\n" +
       "Over in the meadow,\n" +
-      `${location(8)},\n` +
+      `${location(8, true)},\n` +
       `Lived ${mother(8)}\n` +
       `And her little ${children(8)} ${numberToWord(9)}.\n` +
       `\"${action(8)}!\" said the mother;\n` +
       `\"${pronoun(9)} ${action(8).toLowerCase()}!\" said the ${numberToWord(9)}.\n` +
       `So they ${actionDone(8)},\n` +
-      "Where the cool pools shine.\n" +
+      `${location(8)}.\n` +
       "\n" +
       "Over in the meadow,\n" +
-      `${location(9)},\n` +
+      `${location(9, true)},\n` +
       `Lived ${mother(9)}\n` +
       `And her little ${children(9)} ${numberToWord(10)}.\n` +
       `\"${action(9)}!\" said the mother;\n` +
       `\"${pronoun(10)} ${action(9).toLowerCase()}!\" said the ${numberToWord(10)}.\n` +
       `So they ${actionDone(9)},\n` +
-      "In their sly little den."
+      `${location(9)}.`
   }
 }
 
-function location(number) {
-  if (number == 0) return "In the sand, in the sun";
+function location(number, isFirstAppearance) {
+  if (number == 0) return "In the sand in the sun";
   if (number == 1) return "Where the stream runs blue";
-  if (number == 2) return "In a hole in a tree";
+  if (number == 2) return `In ${article(isFirstAppearance)} hole in a tree`;
   if (number == 3) return "By the reeds on the shore";
-  if (number == 4) return "In a snug beehive";
-  if (number == 5) return "In a nest made of sticks";
+  if (number == 4) return `In ${article(isFirstAppearance)} snug beehive`;
+  if (number == 5) return `In ${article(isFirstAppearance)} nest made of sticks`;
   if (number == 6) return "In the grass soft and even";
-  if (number == 7) return "On an old mossy gate";
+  if (number == 7) return "On the old mossy gate";
   if (number == 8) return "Where the cool pools shine";
-  if (number == 9) return "In a sly little den";
+  if (number == 9) return `In ${article(isFirstAppearance)} sly little den`;
+
+  function article(isFirstAppearance) {
+    if (isFirstAppearance) {
+      return "a";
+    } else {
+      return "their";
+    }
+  }
 }
 
 function mother(number) {
