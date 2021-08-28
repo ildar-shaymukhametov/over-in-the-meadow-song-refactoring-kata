@@ -87,7 +87,7 @@ class VerseNumber10 {
   }
 }
 
-class VerseNumber1 extends VerseNumber10 {
+class VerseNumber1 {
   actionDone() {
     return "jumped and they jumped";
   }
@@ -105,7 +105,7 @@ class VerseNumber1 extends VerseNumber10 {
   }
 }
 
-class VerseNumber2 extends VerseNumber10 {
+class VerseNumber2 {
   actionDone() {
     return "swam and they swam";
   }
@@ -123,7 +123,7 @@ class VerseNumber2 extends VerseNumber10 {
   }
 }
 
-class VerseNumber3 extends VerseNumber10 {
+class VerseNumber3 {
   actionDone() {
     return "sang and they sang";
   }
@@ -148,7 +148,7 @@ class VerseNumber3 extends VerseNumber10 {
     return "birdies";
   }
 }
-class VerseNumber4 extends VerseNumber10 {
+class VerseNumber4 {
   actionDone() {
     return "dived and they splashed";
   }
@@ -165,7 +165,7 @@ class VerseNumber4 extends VerseNumber10 {
     return "ratties";
   }
 }
-class VerseNumber5 extends VerseNumber10 {
+class VerseNumber5 {
   actionDone() {
     return "buzzed and they buzzed";
   }
@@ -190,7 +190,7 @@ class VerseNumber5 extends VerseNumber10 {
     return "honies";
   }
 }
-class VerseNumber6 extends VerseNumber10 {
+class VerseNumber6 {
   actionDone() {
     return "cawed and they cawed";
   }
@@ -215,7 +215,7 @@ class VerseNumber6 extends VerseNumber10 {
     return "crows";
   }
 }
-class VerseNumber7 extends VerseNumber10 {
+class VerseNumber7 {
   actionDone() {
     return "chirped cheery notes";
   }
@@ -232,7 +232,7 @@ class VerseNumber7 extends VerseNumber10 {
     return "crickets";
   }
 }
-class VerseNumber8 extends VerseNumber10 {
+class VerseNumber8 {
   actionDone() {
     return "basked, and they basked";
   }
@@ -249,7 +249,7 @@ class VerseNumber8 extends VerseNumber10 {
     return "lizards";
   }
 }
-class VerseNumber9 extends VerseNumber10 {
+class VerseNumber9 {
   actionDone() {
     return "croaked and they croaked";
   }
