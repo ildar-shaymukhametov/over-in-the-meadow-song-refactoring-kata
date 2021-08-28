@@ -58,6 +58,19 @@ export class Program {
   }
 }
 
+class Article {
+  constructor(isFirstAppearance) {
+    this.isFirstAppearance = isFirstAppearance;
+  }
+  toString() {
+    if (this.isFirstAppearance) {
+      return "a";
+    } else {
+      return "their";
+    }
+  }
+}
+
 class VerseNumber10 {
   constructor(number) {
     this.number = number;
@@ -69,15 +82,7 @@ class VerseNumber10 {
     return "spin";
   }
   location(isFirstAppearance) {
-    return `In ${article(isFirstAppearance)} sly little den`;
-
-    function article(isFirstAppearance) {
-      if (isFirstAppearance) {
-        return "a";
-      } else {
-        return "their";
-      }
-    }
+    return `In ${new Article(isFirstAppearance)} sly little den`;
   }
   mother() {
     return "a gray mother spider";
@@ -131,15 +136,7 @@ class VerseNumber3 {
     return "sing";
   }
   location(isFirstAppearance) {
-    return `In ${article(isFirstAppearance)} hole in a tree`;
-
-    function article(isFirstAppearance) {
-      if (isFirstAppearance) {
-        return "a";
-      } else {
-        return "their";
-      }
-    }
+    return `In ${new Article(isFirstAppearance)} hole in a tree`;
   }
   mother() {
     return "an old mother bluebird";
@@ -173,15 +170,7 @@ class VerseNumber5 {
     return "buzz";
   }
   location(isFirstAppearance) {
-    return `In ${article(isFirstAppearance)} snug beehive`;
-
-    function article(isFirstAppearance) {
-      if (isFirstAppearance) {
-        return "a";
-      } else {
-        return "their";
-      }
-    }
+    return `In ${new Article(isFirstAppearance)} snug beehive`;
   }
   mother() {
     return "a mother honey bee";
@@ -198,15 +187,7 @@ class VerseNumber6 {
     return "caw";
   }
   location(isFirstAppearance) {
-    return `In ${article(isFirstAppearance)} nest made of sticks`;
-
-    function article(isFirstAppearance) {
-      if (isFirstAppearance) {
-        return "a";
-      } else {
-        return "their";
-      }
-    }
+    return `In ${new Article(isFirstAppearance)} nest made of sticks`;
   }
   mother() {
     return "a black mother crow";
