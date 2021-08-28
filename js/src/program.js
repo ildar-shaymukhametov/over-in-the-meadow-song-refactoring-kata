@@ -19,19 +19,19 @@ export class Program {
     return result.join("\n\n");
   }
   location(number, isFirstAppearance) {
-    return new VerseNumber(number).location(number, isFirstAppearance);
+    return new VerseNumber(number).location(isFirstAppearance);
   }
   mother(number) {
-    return new VerseNumber(number).mother(number);
+    return new VerseNumber(number).mother();
   }
   children(number) {
-    return new VerseNumber(number).children(number);
+    return new VerseNumber(number).children();
   }
   action(number) {
-    return new VerseNumber(number).action(number);
+    return new VerseNumber(number).action();
   }
   actionDone(number) {
-    return new VerseNumber(number).actionDone(number);
+    return new VerseNumber(number).actionDone();
   }
 }
 
@@ -39,41 +39,41 @@ class VerseNumber {
   constructor(number) {
     this.number = number;
   }
-  actionDone(number) {
-    if (number == 1) return "jumped and they jumped";
-    if (number == 2) return "swam and they swam";
-    if (number == 3) return "sang and they sang";
-    if (number == 4) return "dived and they splashed";
-    if (number == 5) return "buzzed and they buzzed";
-    if (number == 6) return "cawed and they cawed";
-    if (number == 7) return "chirped cheery notes";
-    if (number == 8) return "basked, and they basked";
-    if (number == 9) return "croaked and they croaked";
-    if (number == 10) return "spun silken webs";
+  actionDone() {
+    if (this.number == 1) return "jumped and they jumped";
+    if (this.number == 2) return "swam and they swam";
+    if (this.number == 3) return "sang and they sang";
+    if (this.number == 4) return "dived and they splashed";
+    if (this.number == 5) return "buzzed and they buzzed";
+    if (this.number == 6) return "cawed and they cawed";
+    if (this.number == 7) return "chirped cheery notes";
+    if (this.number == 8) return "basked, and they basked";
+    if (this.number == 9) return "croaked and they croaked";
+    if (this.number == 10) return "spun silken webs";
   }
-  action(number) {
-    if (number == 1) return "jump";
-    if (number == 2) return "swim";
-    if (number == 3) return "sing";
-    if (number == 4) return "dive";
-    if (number == 5) return "buzz";
-    if (number == 6) return "caw";
-    if (number == 7) return "chirp";
-    if (number == 8) return "bask";
-    if (number == 9) return "croak";
-    if (number == 10) return "spin";
+  action() {
+    if (this.number == 1) return "jump";
+    if (this.number == 2) return "swim";
+    if (this.number == 3) return "sing";
+    if (this.number == 4) return "dive";
+    if (this.number == 5) return "buzz";
+    if (this.number == 6) return "caw";
+    if (this.number == 7) return "chirp";
+    if (this.number == 8) return "bask";
+    if (this.number == 9) return "croak";
+    if (this.number == 10) return "spin";
   }
-  location(number, isFirstAppearance) {
-    if (number == 1) return "In the sand in the sun";
-    if (number == 2) return "Where the stream runs blue";
-    if (number == 3) return `In ${article(isFirstAppearance)} hole in a tree`;
-    if (number == 4) return "By the reeds on the shore";
-    if (number == 5) return `In ${article(isFirstAppearance)} snug beehive`;
-    if (number == 6) return `In ${article(isFirstAppearance)} nest made of sticks`;
-    if (number == 7) return "In the grass soft and even";
-    if (number == 8) return "On the old mossy gate";
-    if (number == 9) return "Where the cool pools shine";
-    if (number == 10) return `In ${article(isFirstAppearance)} sly little den`;
+  location(isFirstAppearance) {
+    if (this.number == 1) return "In the sand in the sun";
+    if (this.number == 2) return "Where the stream runs blue";
+    if (this.number == 3) return `In ${article(isFirstAppearance)} hole in a tree`;
+    if (this.number == 4) return "By the reeds on the shore";
+    if (this.number == 5) return `In ${article(isFirstAppearance)} snug beehive`;
+    if (this.number == 6) return `In ${article(isFirstAppearance)} nest made of sticks`;
+    if (this.number == 7) return "In the grass soft and even";
+    if (this.number == 8) return "On the old mossy gate";
+    if (this.number == 9) return "Where the cool pools shine";
+    if (this.number == 10) return `In ${article(isFirstAppearance)} sly little den`;
 
     function article(isFirstAppearance) {
       if (isFirstAppearance) {
@@ -83,29 +83,29 @@ class VerseNumber {
       }
     }
   }
-  mother(number) {
-    if (number == 1) return "an old mother toadie";
-    if (number == 2) return "an old mother fish";
-    if (number == 3) return "an old mother bluebird";
-    if (number == 4) return "an old mother muskrat";
-    if (number == 5) return "a mother honey bee";
-    if (number == 6) return "a black mother crow";
-    if (number == 7) return "a mother cricket";
-    if (number == 8) return "a brown mother lizard";
-    if (number == 9) return "a green mother frog";
-    if (number == 10) return "a gray mother spider";
+  mother() {
+    if (this.number == 1) return "an old mother toadie";
+    if (this.number == 2) return "an old mother fish";
+    if (this.number == 3) return "an old mother bluebird";
+    if (this.number == 4) return "an old mother muskrat";
+    if (this.number == 5) return "a mother honey bee";
+    if (this.number == 6) return "a black mother crow";
+    if (this.number == 7) return "a mother cricket";
+    if (this.number == 8) return "a brown mother lizard";
+    if (this.number == 9) return "a green mother frog";
+    if (this.number == 10) return "a gray mother spider";
   }
-  children(number) {
-    if (number == 1) return "toadie";
-    if (number == 2) return "fishes";
-    if (number == 3) return "birdies";
-    if (number == 4) return "ratties";
-    if (number == 5) return "honies";
-    if (number == 6) return "crows";
-    if (number == 7) return "crickets";
-    if (number == 8) return "lizards";
-    if (number == 9) return "froggies";
-    if (number == 10) return "spiders";
+  children() {
+    if (this.number == 1) return "toadie";
+    if (this.number == 2) return "fishes";
+    if (this.number == 3) return "birdies";
+    if (this.number == 4) return "ratties";
+    if (this.number == 5) return "honies";
+    if (this.number == 6) return "crows";
+    if (this.number == 7) return "crickets";
+    if (this.number == 8) return "lizards";
+    if (this.number == 9) return "froggies";
+    if (this.number == 10) return "spiders";
   }
 }
 
