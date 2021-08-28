@@ -28,41 +28,15 @@ export class Program {
     } catch (error) {
       result = ChildrenCount;
     }
+
     return new result(number);
   }
   verseFor(number) {
     var result;
-    switch (number) {
-      case 1:
-        result = Verse1;
-        break;
-      case 2:
-        result = Verse2;
-        break;
-      case 3:
-        result = Verse3;
-        break;
-      case 4:
-        result = Verse4;
-        break;
-      case 5:
-        result = Verse5;
-        break;
-      case 6:
-        result = Verse6;
-        break;
-      case 7:
-        result = Verse7;
-        break;
-      case 8:
-        result = Verse8;
-        break;
-      case 9:
-        result = Verse9;
-        break;
-      default:
-        result = Verse10;
-        break;
+    try {
+      result = eval(`Verse${number}`);
+    } catch (error) {
+      result = Verse;
     }
 
     return new result(number);
