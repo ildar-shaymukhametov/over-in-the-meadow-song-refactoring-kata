@@ -19,6 +19,51 @@ export class Program {
     return result.join("\n\n");
   }
   location(number, isFirstAppearance) {
+    return new VerseNumber(number).location(number, isFirstAppearance);
+  }
+  mother(number) {
+    return new VerseNumber(number).mother(number);
+  }
+  children(number) {
+    return new VerseNumber(number).children(number);
+  }
+  action(number) {
+    return new VerseNumber(number).action(number);
+  }
+  actionDone(number) {
+    return new VerseNumber(number).actionDone(number);
+  }
+}
+
+class VerseNumber {
+  constructor(number) {
+    this.number = number;
+  }
+  actionDone(number) {
+    if (number == 1) return "jumped and they jumped";
+    if (number == 2) return "swam and they swam";
+    if (number == 3) return "sang and they sang";
+    if (number == 4) return "dived and they splashed";
+    if (number == 5) return "buzzed and they buzzed";
+    if (number == 6) return "cawed and they cawed";
+    if (number == 7) return "chirped cheery notes";
+    if (number == 8) return "basked, and they basked";
+    if (number == 9) return "croaked and they croaked";
+    if (number == 10) return "spun silken webs";
+  }
+  action(number) {
+    if (number == 1) return "jump";
+    if (number == 2) return "swim";
+    if (number == 3) return "sing";
+    if (number == 4) return "dive";
+    if (number == 5) return "buzz";
+    if (number == 6) return "caw";
+    if (number == 7) return "chirp";
+    if (number == 8) return "bask";
+    if (number == 9) return "croak";
+    if (number == 10) return "spin";
+  }
+  location(number, isFirstAppearance) {
     if (number == 1) return "In the sand in the sun";
     if (number == 2) return "Where the stream runs blue";
     if (number == 3) return `In ${article(isFirstAppearance)} hole in a tree`;
@@ -29,7 +74,7 @@ export class Program {
     if (number == 8) return "On the old mossy gate";
     if (number == 9) return "Where the cool pools shine";
     if (number == 10) return `In ${article(isFirstAppearance)} sly little den`;
-  
+
     function article(isFirstAppearance) {
       if (isFirstAppearance) {
         return "a";
@@ -61,30 +106,6 @@ export class Program {
     if (number == 8) return "lizards";
     if (number == 9) return "froggies";
     if (number == 10) return "spiders";
-  }
-  action(number) {
-    if (number == 1) return "jump";
-    if (number == 2) return "swim";
-    if (number == 3) return "sing";
-    if (number == 4) return "dive";
-    if (number == 5) return "buzz";
-    if (number == 6) return "caw";
-    if (number == 7) return "chirp";
-    if (number == 8) return "bask";
-    if (number == 9) return "croak";
-    if (number == 10) return "spin";
-  }
-  actionDone(number) {
-    if (number == 1) return "jumped and they jumped";
-    if (number == 2) return "swam and they swam";
-    if (number == 3) return "sang and they sang";
-    if (number == 4) return "dived and they splashed";
-    if (number == 5) return "buzzed and they buzzed";
-    if (number == 6) return "cawed and they cawed";
-    if (number == 7) return "chirped cheery notes";
-    if (number == 8) return "basked, and they basked";
-    if (number == 9) return "croaked and they croaked";
-    if (number == 10) return "spun silken webs";
   }
 }
 
