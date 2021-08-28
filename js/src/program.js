@@ -23,13 +23,10 @@ export class Program {
   }
   numberOfChildrenFor(number) {
     var result;
-    switch (number) {
-      case 1:
-        result = NumberOfChildren1;
-        break;
-      default:
-        result = NumberOfChildren;
-        break;
+    try {
+      result = eval(`NumberOfChildren${number}`);
+    } catch (error) {
+      result = NumberOfChildren;
     }
     return new result(number);
   }
@@ -284,20 +281,6 @@ class Verse9 extends Verse {
   }
 }
 class NumberOfChildren {
-  constructor(number) {
-    this.number = number;
-  }
-  toString() {
-    if (this.number == 2) return "two";
-    else if (this.number == 3) return "three";
-    else if (this.number == 4) return "four";
-    else if (this.number == 5) return "five";
-    else if (this.number == 6) return "six";
-    else if (this.number == 7) return "seven";
-    else if (this.number == 8) return "eight";
-    else if (this.number == 9) return "nine";
-    else if (this.number == 10) return "ten";
-  }
   pronoun() {
     return "We";
   }
@@ -312,6 +295,51 @@ class NumberOfChildren {
   }
 }
 
+class NumberOfChildren2 extends NumberOfChildren {
+  toString() {
+    return "two";
+  }
+}
+class NumberOfChildren3 extends NumberOfChildren {
+  toString() {
+    return "three";
+  }
+}
+class NumberOfChildren4 extends NumberOfChildren {
+  toString() {
+    return "four";
+  }
+}
+class NumberOfChildren5 extends NumberOfChildren {
+  toString() {
+    return "five";
+  }
+}
+class NumberOfChildren6 extends NumberOfChildren {
+  toString() {
+    return "six";
+  }
+}
+class NumberOfChildren7 extends NumberOfChildren {
+  toString() {
+    return "seven";
+  }
+}
+class NumberOfChildren8 extends NumberOfChildren {
+  toString() {
+    return "eight";
+  }
+}
+class NumberOfChildren9 extends NumberOfChildren {
+  toString() {
+    return "nine";
+  }
+}
+class NumberOfChildren10 extends NumberOfChildren {
+  toString() {
+    return "ten";
+  }
+}
 class NumberOfChildren1 extends NumberOfChildren {
   toString() {
     return "one";
