@@ -5,52 +5,52 @@ export class Program {
     var result = [];
     for (let i = 1; i <= 10; i++) {
       const numberOfChildren = new NumberOfChildren(i);
-      const verseNumber = this.verseNumberFor(i);
+      const verse = this.verseFor(i);
       result.push(
         "Over in the meadow,\n" +
-        `${verseNumber.location(true)},\n` +
-        `Lived ${verseNumber.mother()}\n` +
-        `And her little ${verseNumber.children()} ${numberOfChildren}.\n` +
-        `\"${capitalize(verseNumber.action())}!\" said the mother;\n` +
-        `\"${numberOfChildren.pronoun()} ${verseNumber.action()}!\" said the ${numberOfChildren}.\n` +
-        `So they ${verseNumber.actionDone()},\n` +
-        `${verseNumber.location()}.`
+        `${verse.location(true)},\n` +
+        `Lived ${verse.mother()}\n` +
+        `And her little ${verse.children()} ${numberOfChildren}.\n` +
+        `\"${capitalize(verse.action())}!\" said the mother;\n` +
+        `\"${numberOfChildren.pronoun()} ${verse.action()}!\" said the ${numberOfChildren}.\n` +
+        `So they ${verse.actionDone()},\n` +
+        `${verse.location()}.`
       );
     }
     return result.join("\n\n");
   }
-  verseNumberFor(number) {
+  verseFor(number) {
     var result;
     switch (number) {
       case 1:
-        result = VerseNumber1;
+        result = Verse1;
         break;
       case 2:
-        result = VerseNumber2;
+        result = Verse2;
         break;
       case 3:
-        result = VerseNumber3;
+        result = Verse3;
         break;
       case 4:
-        result = VerseNumber4;
+        result = Verse4;
         break;
       case 5:
-        result = VerseNumber5;
+        result = Verse5;
         break;
       case 6:
-        result = VerseNumber6;
+        result = Verse6;
         break;
       case 7:
-        result = VerseNumber7;
+        result = Verse7;
         break;
       case 8:
-        result = VerseNumber8;
+        result = Verse8;
         break;
       case 9:
-        result = VerseNumber9;
+        result = Verse9;
         break;
       default:
-        result = VerseNumber10;
+        result = Verse10;
         break;
     }
 
@@ -71,7 +71,7 @@ class Article {
   }
 }
 
-class VerseNumber10 {
+class Verse10 {
   actionDone() {
     return "spun silken webs";
   }
@@ -89,7 +89,7 @@ class VerseNumber10 {
   }
 }
 
-class VerseNumber1 {
+class Verse1 {
   actionDone() {
     return "jumped and they jumped";
   }
@@ -107,7 +107,7 @@ class VerseNumber1 {
   }
 }
 
-class VerseNumber2 {
+class Verse2 {
   actionDone() {
     return "swam and they swam";
   }
@@ -125,7 +125,7 @@ class VerseNumber2 {
   }
 }
 
-class VerseNumber3 {
+class Verse3 {
   actionDone() {
     return "sang and they sang";
   }
@@ -142,7 +142,7 @@ class VerseNumber3 {
     return "birdies";
   }
 }
-class VerseNumber4 {
+class Verse4 {
   actionDone() {
     return "dived and they splashed";
   }
@@ -159,7 +159,7 @@ class VerseNumber4 {
     return "ratties";
   }
 }
-class VerseNumber5 {
+class Verse5 {
   actionDone() {
     return "buzzed and they buzzed";
   }
@@ -176,7 +176,7 @@ class VerseNumber5 {
     return "honies";
   }
 }
-class VerseNumber6 {
+class Verse6 {
   actionDone() {
     return "cawed and they cawed";
   }
@@ -193,7 +193,7 @@ class VerseNumber6 {
     return "crows";
   }
 }
-class VerseNumber7 {
+class Verse7 {
   actionDone() {
     return "chirped cheery notes";
   }
@@ -210,7 +210,7 @@ class VerseNumber7 {
     return "crickets";
   }
 }
-class VerseNumber8 {
+class Verse8 {
   actionDone() {
     return "basked, and they basked";
   }
@@ -227,7 +227,7 @@ class VerseNumber8 {
     return "lizards";
   }
 }
-class VerseNumber9 {
+class Verse9 {
   actionDone() {
     return "croaked and they croaked";
   }
