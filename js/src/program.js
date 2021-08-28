@@ -4,18 +4,18 @@ export class Program {
   song() {
     var result = [];
     for (let i = 1; i <= 10; i++) {
-      result.push(this.verse(i));
+      result.push(this.verse(i, i));
     }
     return result.join("\n\n");
   }
-  verse(number) {
-    const numberOfChildren = this.numberOfChildrenFor(number);
-    const verse = this.verseFor(number);
+  verse(verseNumber, orderNumber) {
+    const numberOfChildren = this.numberOfChildrenFor(orderNumber);
+    const verse = this.verseFor(verseNumber);
 
     return "Over in the meadow,\n" +
       `${verse.firstLocation()},\n` +
       `Lived ${verse.mother()}\n` +
-      `And her little ${verse.children()} ${numberOfChildren}.\n` +
+      `And her little ${verse.child()}${numberOfChildren.ending(verse.child())} ${numberOfChildren}.\n` +
       `\"${capitalize(verse.action())}!\" said the mother;\n` +
       `\"${numberOfChildren.pronoun()} ${verse.action()}!\" said the ${numberOfChildren}.\n` +
       `So they ${verse.actionDone()},\n` +
@@ -80,8 +80,9 @@ export class RandomSong extends Program {
   song() {
     var result = [];
     var nextNumber;
+    var orderNumber = 1;
     while (nextNumber = this.randomizer.next()) {
-      result.push(this.verse(nextNumber));
+      result.push(this.verse(nextNumber, orderNumber++));
     }
     return result.join("\n\n");
   }
@@ -122,8 +123,8 @@ class Verse10 extends Verse {
   mother() {
     return "a gray mother spider";
   }
-  children() {
-    return "spiders";
+  child() {
+    return "spider";
   }
 }
 
@@ -140,7 +141,7 @@ class Verse1 extends Verse {
   mother() {
     return "an old mother toadie";
   }
-  children() {
+  child() {
     return "toadie";
   }
 }
@@ -158,8 +159,8 @@ class Verse2 extends Verse {
   mother() {
     return "an old mother fish";
   }
-  children() {
-    return "fishes";
+  child() {
+    return "fish";
   }
 }
 
@@ -176,8 +177,8 @@ class Verse3 extends Verse {
   mother() {
     return "an old mother bluebird";
   }
-  children() {
-    return "birdies";
+  child() {
+    return "birdie";
   }
 }
 class Verse4 extends Verse {
@@ -193,8 +194,8 @@ class Verse4 extends Verse {
   mother() {
     return "an old mother muskrat";
   }
-  children() {
-    return "ratties";
+  child() {
+    return "rattie";
   }
 }
 class Verse5 extends Verse {
@@ -210,8 +211,8 @@ class Verse5 extends Verse {
   mother() {
     return "a mother honey bee";
   }
-  children() {
-    return "honies";
+  child() {
+    return "honie";
   }
 }
 class Verse6 extends Verse {
@@ -227,8 +228,8 @@ class Verse6 extends Verse {
   mother() {
     return "a black mother crow";
   }
-  children() {
-    return "crows";
+  child() {
+    return "crow";
   }
 }
 class Verse7 extends Verse {
@@ -244,8 +245,8 @@ class Verse7 extends Verse {
   mother() {
     return "a mother cricket";
   }
-  children() {
-    return "crickets";
+  child() {
+    return "cricket";
   }
 }
 class Verse8 extends Verse {
@@ -261,8 +262,8 @@ class Verse8 extends Verse {
   mother() {
     return "a brown mother lizard";
   }
-  children() {
-    return "lizards";
+  child() {
+    return "lizard";
   }
 }
 class Verse9 extends Verse {
@@ -278,8 +279,8 @@ class Verse9 extends Verse {
   mother() {
     return "a green mother frog";
   }
-  children() {
-    return "froggies";
+  child() {
+    return "froggie";
   }
 }
 class NumberOfChildren {
@@ -300,6 +301,15 @@ class NumberOfChildren {
   pronoun() {
     return "We";
   }
+  ending(word) {
+    var result;
+    if (word.endsWith("sh")) {
+      result = "es";
+    } else {
+      result = "s";
+    }
+    return result;
+  }
 }
 
 class NumberOfChildren1 extends NumberOfChildren {
@@ -308,5 +318,8 @@ class NumberOfChildren1 extends NumberOfChildren {
   }
   pronoun() {
     return "I";
+  }
+  ending() {
+    return "";
   }
 }
