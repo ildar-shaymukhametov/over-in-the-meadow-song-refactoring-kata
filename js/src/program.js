@@ -6,6 +6,7 @@ export class Program {
     for (let i = 1; i <= 10; i++) {
       const numberOfChildren = new NumberOfChildren(i);
       const verse = new Verse(i);
+
       result.push(
         "Over in the meadow,\n" +
         `${verse.location(true)},\n` +
