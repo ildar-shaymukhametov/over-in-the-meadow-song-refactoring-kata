@@ -4,7 +4,7 @@ export class Program {
   song() {
     var result = [];
     for (let i = 1; i <= 10; i++) {
-      const numberOfChildren = new NumberOfChildren(i);
+      const numberOfChildren = this.numberOfChildrenFor(i);
       const verse = this.verseFor(i);
       result.push(
         "Over in the meadow,\n" +
@@ -18,6 +18,18 @@ export class Program {
       );
     }
     return result.join("\n\n");
+  }
+  numberOfChildrenFor(number) {
+    var result;
+    switch (number) {
+      case 1:
+        result = NumberOfChildren1;
+        break;
+      default:
+        result = NumberOfChildren;
+        break;
+    }
+    return new result(number);
   }
   verseFor(number) {
     var result;
@@ -258,8 +270,7 @@ class NumberOfChildren {
     this.number = number;
   }
   toString() {
-    if (this.number == 1) return "one";
-    else if (this.number == 2) return "two";
+    if (this.number == 2) return "two";
     else if (this.number == 3) return "three";
     else if (this.number == 4) return "four";
     else if (this.number == 5) return "five";
@@ -270,10 +281,15 @@ class NumberOfChildren {
     else if (this.number == 10) return "ten";
   }
   pronoun() {
-    if (this.number == 1) {
-      return "I";
-    } else {
-      return "We";
-    }
+    return "We";
+  }
+}
+
+class NumberOfChildren1 extends NumberOfChildren {
+  toString() {
+    return "one";
+  }
+  pronoun() {
+    return "I";
   }
 }
