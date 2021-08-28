@@ -93,7 +93,7 @@ function actionDone(number) {
 }
 
 function toWords(number) {
-  return new NumberOfChildren(number).toWords(number);
+  return new NumberOfChildren(number).toWords();
 }
 function pronoun(number) {
   return new NumberOfChildren(number).pronoun(number);
@@ -103,17 +103,17 @@ class NumberOfChildren {
   constructor(number) {
     this.number = number;
   }
-  toWords(number) {
-    if (number == 1) return "one";
-    if (number == 2) return "two";
-    if (number == 3) return "three";
-    if (number == 4) return "four";
-    if (number == 5) return "five";
-    if (number == 6) return "six";
-    if (number == 7) return "seven";
-    if (number == 8) return "eight";
-    if (number == 9) return "nine";
-    if (number == 10) return "ten";
+  toWords() {
+    if (this.number == 1) return "one";
+    if (this.number == 2) return "two";
+    if (this.number == 3) return "three";
+    if (this.number == 4) return "four";
+    if (this.number == 5) return "five";
+    if (this.number == 6) return "six";
+    if (this.number == 7) return "seven";
+    if (this.number == 8) return "eight";
+    if (this.number == 9) return "nine";
+    if (this.number == 10) return "ten";
   }
   pronoun(number) {
     if (number == 1) {
