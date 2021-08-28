@@ -72,9 +72,6 @@ class Article {
 }
 
 class VerseNumber10 {
-  constructor(number) {
-    this.number = number;
-  }
   actionDone() {
     return "spun silken webs";
   }
