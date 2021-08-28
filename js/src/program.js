@@ -4,13 +4,14 @@ export class Program {
   song() {
     var result = [];
     for (let i = 0; i < 10; i++) {
+      const numberOfChildren = new NumberOfChildren(i + 1);
       result.push(
         "Over in the meadow,\n" +
         `${location(i, true)},\n` +
         `Lived ${mother(i)}\n` +
-        `And her little ${children(i)} ${toWords(i + 1)}.\n` +
+        `And her little ${children(i)} ${numberOfChildren.toWords()}.\n` +
         `\"${capitalize(action(i))}!\" said the mother;\n` +
-        `\"${pronoun(i + 1)} ${action(i)}!\" said the ${toWords(i + 1)}.\n` +
+        `\"${numberOfChildren.pronoun()} ${action(i)}!\" said the ${numberOfChildren.toWords()}.\n` +
         `So they ${actionDone(i)},\n` +
         `${location(i)}.`
       );
@@ -90,13 +91,6 @@ function actionDone(number) {
   if (number == 7) return "basked, and they basked";
   if (number == 8) return "croaked and they croaked";
   if (number == 9) return "spun silken webs";
-}
-
-function toWords(number) {
-  return new NumberOfChildren(number).toWords();
-}
-function pronoun(number) {
-  return new NumberOfChildren(number).pronoun();
 }
 
 class NumberOfChildren {
