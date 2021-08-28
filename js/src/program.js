@@ -1,20 +1,10 @@
 const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
 
 export class Program {
-  constructor({ randomizer } = {}) {
-    this.randomizer = randomizer;
-  }
   song() {
     var result = [];
-    if (this.randomizer) {
-      var nextNumber;
-      while (nextNumber = this.randomizer.next()) {
-        result.push(this.verse(nextNumber));
-      }
-    } else {
-      for (let i = 1; i <= 10; i++) {
-        result.push(this.verse(i));
-      }
+    for (let i = 1; i <= 10; i++) {
+      result.push(this.verse(i));
     }
     return result.join("\n\n");
   }
@@ -79,6 +69,21 @@ export class Program {
     }
 
     return new result(number);
+  }
+}
+
+export class RandomSong extends Program {
+  constructor(randomizer) {
+    super();
+    this.randomizer = randomizer;
+  }
+  song() {
+    var result = [];
+    var nextNumber;
+    while (nextNumber = this.randomizer.next()) {
+      result.push(this.verse(nextNumber));
+    }
+    return result.join("\n\n");
   }
 }
 

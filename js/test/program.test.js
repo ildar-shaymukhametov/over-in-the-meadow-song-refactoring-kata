@@ -1,4 +1,4 @@
-import { Program } from "../src/program";
+import { Program, RandomSong } from "../src/program";
 
 test("song", () => {
   expect(new Program().song()).toEqual(
@@ -95,7 +95,7 @@ test("song", () => {
 })
 
 test("random verses", () => {
-  expect(new Program({ randomizer: new StubRandomizer(1, 10) }).song()).toEqual(
+  expect(new RandomSong(new StubRandomizer(1, 10)).song()).toEqual(
     "Over in the meadow,\n" +
     "Where the stream runs blue,\n" +
     "Lived an old mother fish\n" +
