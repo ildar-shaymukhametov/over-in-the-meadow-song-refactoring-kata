@@ -4,20 +4,22 @@ export class Program {
   song() {
     var result = [];
     for (let i = 1; i <= 10; i++) {
-      const numberOfChildren = this.numberOfChildrenFor(i);
-      const verse = this.verseFor(i);
-      result.push(
-        "Over in the meadow,\n" +
-        `${verse.firstLocation()},\n` +
-        `Lived ${verse.mother()}\n` +
-        `And her little ${verse.children()} ${numberOfChildren}.\n` +
-        `\"${capitalize(verse.action())}!\" said the mother;\n` +
-        `\"${numberOfChildren.pronoun()} ${verse.action()}!\" said the ${numberOfChildren}.\n` +
-        `So they ${verse.actionDone()},\n` +
-        `${verse.secondLocation()}.`
-      );
+      result.push(this.verse(i));
     }
     return result.join("\n\n");
+  }
+  verse(number) {
+    const numberOfChildren = this.numberOfChildrenFor(number);
+    const verse = this.verseFor(number);
+
+    return "Over in the meadow,\n" +
+      `${verse.firstLocation()},\n` +
+      `Lived ${verse.mother()}\n` +
+      `And her little ${verse.children()} ${numberOfChildren}.\n` +
+      `\"${capitalize(verse.action())}!\" said the mother;\n` +
+      `\"${numberOfChildren.pronoun()} ${verse.action()}!\" said the ${numberOfChildren}.\n` +
+      `So they ${verse.actionDone()},\n` +
+      `${verse.secondLocation()}.`;
   }
   numberOfChildrenFor(number) {
     var result;
