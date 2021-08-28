@@ -9,7 +9,7 @@ export class Program {
     return result.join("\n\n");
   }
   verse(verseNumber, orderNumber) {
-    const childrenCount = this.childrenFor(orderNumber);
+    const childrenCount = this.childrenCountFor(orderNumber);
     const verse = this.verseFor(verseNumber);
 
     return "Over in the meadow,\n" +
@@ -21,7 +21,7 @@ export class Program {
       `So they ${verse.actionDone()},\n` +
       `${verse.secondLocation()}.`;
   }
-  childrenFor(number) {
+  childrenCountFor(number) {
     var result;
     try {
       result = eval(`ChildrenCount${number}`);
