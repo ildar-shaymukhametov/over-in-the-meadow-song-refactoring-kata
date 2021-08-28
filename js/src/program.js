@@ -8,13 +8,13 @@ export class Program {
       const verse = this.verseFor(i);
       result.push(
         "Over in the meadow,\n" +
-        `${verse.location(true)},\n` +
+        `${verse.firstLocation()},\n` +
         `Lived ${verse.mother()}\n` +
         `And her little ${verse.children()} ${numberOfChildren}.\n` +
         `\"${capitalize(verse.action())}!\" said the mother;\n` +
         `\"${numberOfChildren.pronoun()} ${verse.action()}!\" said the ${numberOfChildren}.\n` +
         `So they ${verse.actionDone()},\n` +
-        `${verse.location()}.`
+        `${verse.secondLocation()}.`
       );
     }
     return result.join("\n\n");
@@ -71,7 +71,16 @@ class Article {
   }
 }
 
-class Verse10 {
+class Verse {
+  firstLocation() {
+    return this.location(true);
+  }
+  secondLocation() {
+    return this.location();
+  }
+}
+
+class Verse10 extends Verse {
   actionDone() {
     return "spun silken webs";
   }
@@ -89,7 +98,7 @@ class Verse10 {
   }
 }
 
-class Verse1 {
+class Verse1 extends Verse {
   actionDone() {
     return "jumped and they jumped";
   }
@@ -107,7 +116,7 @@ class Verse1 {
   }
 }
 
-class Verse2 {
+class Verse2 extends Verse {
   actionDone() {
     return "swam and they swam";
   }
@@ -125,7 +134,7 @@ class Verse2 {
   }
 }
 
-class Verse3 {
+class Verse3 extends Verse {
   actionDone() {
     return "sang and they sang";
   }
@@ -142,7 +151,7 @@ class Verse3 {
     return "birdies";
   }
 }
-class Verse4 {
+class Verse4 extends Verse {
   actionDone() {
     return "dived and they splashed";
   }
@@ -159,7 +168,7 @@ class Verse4 {
     return "ratties";
   }
 }
-class Verse5 {
+class Verse5 extends Verse {
   actionDone() {
     return "buzzed and they buzzed";
   }
@@ -176,7 +185,7 @@ class Verse5 {
     return "honies";
   }
 }
-class Verse6 {
+class Verse6 extends Verse {
   actionDone() {
     return "cawed and they cawed";
   }
@@ -193,7 +202,7 @@ class Verse6 {
     return "crows";
   }
 }
-class Verse7 {
+class Verse7 extends Verse {
   actionDone() {
     return "chirped cheery notes";
   }
@@ -210,7 +219,7 @@ class Verse7 {
     return "crickets";
   }
 }
-class Verse8 {
+class Verse8 extends Verse {
   actionDone() {
     return "basked, and they basked";
   }
@@ -227,7 +236,7 @@ class Verse8 {
     return "lizards";
   }
 }
-class Verse9 {
+class Verse9 extends Verse {
   actionDone() {
     return "croaked and they croaked";
   }
