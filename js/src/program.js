@@ -9,24 +9,24 @@ export class Program {
     return result.join("\n\n");
   }
   verse(verseNumber, orderNumber) {
-    const children = this.childrenFor(orderNumber);
+    const childrenCount = this.childrenFor(orderNumber);
     const verse = this.verseFor(verseNumber);
 
     return "Over in the meadow,\n" +
       `${verse.firstLocation()},\n` +
       `Lived ${verse.mother()}\n` +
-      `And her little ${children.pluralize(verse.child())} ${children.count()}.\n` +
+      `And her little ${childrenCount.pluralize(verse.child())} ${childrenCount}.\n` +
       `\"${capitalize(verse.action())}!\" said the mother;\n` +
-      `\"${children.pronoun()} ${verse.action()}!\" said the ${children.count()}.\n` +
+      `\"${childrenCount.pronoun()} ${verse.action()}!\" said the ${childrenCount}.\n` +
       `So they ${verse.actionDone()},\n` +
       `${verse.secondLocation()}.`;
   }
   childrenFor(number) {
     var result;
     try {
-      result = eval(`Children${number}`);
+      result = eval(`ChildrenCount${number}`);
     } catch (error) {
-      result = Children;
+      result = ChildrenCount;
     }
     return new result(number);
   }
@@ -280,7 +280,7 @@ class Verse9 extends Verse {
     return "froggie";
   }
 }
-class Children {
+class ChildrenCount {
   pronoun() {
     return "We";
   }
@@ -289,53 +289,53 @@ class Children {
   }
 }
 
-class Children2 extends Children {
-  count() {
+class ChildrenCount2 extends ChildrenCount {
+  toString() {
     return "two";
   }
 }
-class Children3 extends Children {
-  count() {
+class ChildrenCount3 extends ChildrenCount {
+  toString() {
     return "three";
   }
 }
-class Children4 extends Children {
-  count() {
+class ChildrenCount4 extends ChildrenCount {
+  toString() {
     return "four";
   }
 }
-class Children5 extends Children {
-  count() {
+class ChildrenCount5 extends ChildrenCount {
+  toString() {
     return "five";
   }
 }
-class Children6 extends Children {
-  count() {
+class ChildrenCount6 extends ChildrenCount {
+  toString() {
     return "six";
   }
 }
-class Children7 extends Children {
-  count() {
+class ChildrenCount7 extends ChildrenCount {
+  toString() {
     return "seven";
   }
 }
-class Children8 extends Children {
-  count() {
+class ChildrenCount8 extends ChildrenCount {
+  toString() {
     return "eight";
   }
 }
-class Children9 extends Children {
-  count() {
+class ChildrenCount9 extends ChildrenCount {
+  toString() {
     return "nine";
   }
 }
-class Children10 extends Children {
-  count() {
+class ChildrenCount10 extends ChildrenCount {
+  toString() {
     return "ten";
   }
 }
-class Children1 extends Children {
-  count() {
+class ChildrenCount1 extends ChildrenCount {
+  toString() {
     return "one";
   }
   pronoun() {
