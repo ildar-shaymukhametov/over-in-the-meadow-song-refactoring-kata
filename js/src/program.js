@@ -10,9 +10,9 @@ export class Program {
         "Over in the meadow,\n" +
         `${verseNumber.location(true)},\n` +
         `Lived ${verseNumber.mother()}\n` +
-        `And her little ${verseNumber.children()} ${numberOfChildren.toWords()}.\n` +
+        `And her little ${verseNumber.children()} ${numberOfChildren}.\n` +
         `\"${capitalize(verseNumber.action())}!\" said the mother;\n` +
-        `\"${numberOfChildren.pronoun()} ${verseNumber.action()}!\" said the ${numberOfChildren.toWords()}.\n` +
+        `\"${numberOfChildren.pronoun()} ${verseNumber.action()}!\" said the ${numberOfChildren}.\n` +
         `So they ${verseNumber.actionDone()},\n` +
         `${verseNumber.location()}.`
       );
@@ -99,7 +99,7 @@ class NumberOfChildren {
   constructor(number) {
     this.number = number;
   }
-  toWords() {
+  toString() {
     if (this.number == 1) return "one";
     if (this.number == 2) return "two";
     if (this.number == 3) return "three";
