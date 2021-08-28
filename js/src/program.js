@@ -8,9 +8,9 @@ export class Program {
         "Over in the meadow,\n" +
         `${location(i, true)},\n` +
         `Lived ${mother(i)}\n` +
-        `And her little ${children(i)} ${numberOfChildren(i + 1)}.\n` +
+        `And her little ${children(i)} ${toWords(i + 1)}.\n` +
         `\"${capitalize(action(i))}!\" said the mother;\n` +
-        `\"${pronoun(i + 1)} ${action(i)}!\" said the ${numberOfChildren(i + 1)}.\n` +
+        `\"${pronoun(i + 1)} ${action(i)}!\" said the ${toWords(i + 1)}.\n` +
         `So they ${actionDone(i)},\n` +
         `${location(i)}.`
       );
@@ -92,7 +92,7 @@ function actionDone(number) {
   if (number == 9) return "spun silken webs";
 }
 
-function numberOfChildren(number) {
+function toWords(number) {
   if (number == 1) return "one";
   if (number == 2) return "two";
   if (number == 3) return "three";
