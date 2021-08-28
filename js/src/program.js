@@ -15,7 +15,7 @@ export class Program {
     return "Over in the meadow,\n" +
       `${verse.firstLocation()},\n` +
       `Lived ${verse.mother()}\n` +
-      `And her little ${verse.child()}${children.ending(verse.child())} ${children.count()}.\n` +
+      `And her little ${children.pluralize(verse.child())} ${children.count()}.\n` +
       `\"${capitalize(verse.action())}!\" said the mother;\n` +
       `\"${children.pronoun()} ${verse.action()}!\" said the ${children.count()}.\n` +
       `So they ${verse.actionDone()},\n` +
@@ -284,14 +284,8 @@ class Children {
   pronoun() {
     return "We";
   }
-  ending(word) {
-    var result;
-    if (word.endsWith("sh")) {
-      result = "es";
-    } else {
-      result = "s";
-    }
-    return result;
+  pluralize(child) {
+    return `${child}${child.endsWith("sh") ? "es" : "s"}`;
   }
 }
 
@@ -347,7 +341,7 @@ class Children1 extends Children {
   pronoun() {
     return "I";
   }
-  ending() {
-    return "";
+  pluralize(child) {
+    return child;
   }
 }
