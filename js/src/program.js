@@ -104,11 +104,35 @@ function toWords(number) {
   if (number == 9) return "nine";
   if (number == 10) return "ten";
 }
-
 function pronoun(number) {
   if (number == 1) {
     return "I";
   } else {
     return "We";
+  }
+}
+
+class NumberOfChildren {
+  constructor(number) {
+    this.number = number;
+  }
+  toWords(number) {
+    if (number == 1) return "one";
+    if (number == 2) return "two";
+    if (number == 3) return "three";
+    if (number == 4) return "four";
+    if (number == 5) return "five";
+    if (number == 6) return "six";
+    if (number == 7) return "seven";
+    if (number == 8) return "eight";
+    if (number == 9) return "nine";
+    if (number == 10) return "ten";
+  }
+  pronoun(number) {
+    if (number == 1) {
+      return "I";
+    } else {
+      return "We";
+    }
   }
 }
