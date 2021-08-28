@@ -21,8 +21,38 @@ export class Program {
   }
   verseNumberFor(number) {
     var result;
-    if (number == 1) result = VerseNumber1;
-    else result = VerseNumber;
+    switch (number) {
+      case 1:
+        result = VerseNumber1;
+        break;
+      case 2:
+        result = VerseNumber2;
+        break;
+      case 3:
+        result = VerseNumber3;
+        break;
+      case 4:
+        result = VerseNumber4;
+        break;
+      case 5:
+        result = VerseNumber5;
+        break;
+      case 6:
+        result = VerseNumber6;
+        break;
+      case 7:
+        result = VerseNumber7;
+        break;
+      case 8:
+        result = VerseNumber8;
+        break;
+      case 9:
+        result = VerseNumber9;
+        break;
+      default:
+        result = VerseNumber;
+        break;
+    }
 
     return new result(number);
   }
@@ -33,37 +63,13 @@ class VerseNumber {
     this.number = number;
   }
   actionDone() {
-    if (this.number == 2) return "swam and they swam";
-    else if (this.number == 3) return "sang and they sang";
-    else if (this.number == 4) return "dived and they splashed";
-    else if (this.number == 5) return "buzzed and they buzzed";
-    else if (this.number == 6) return "cawed and they cawed";
-    else if (this.number == 7) return "chirped cheery notes";
-    else if (this.number == 8) return "basked, and they basked";
-    else if (this.number == 9) return "croaked and they croaked";
-    else if (this.number == 10) return "spun silken webs";
+    return "spun silken webs";
   }
   action() {
-    if (this.number == 2) return "swim";
-    else if (this.number == 3) return "sing";
-    else if (this.number == 4) return "dive";
-    else if (this.number == 5) return "buzz";
-    else if (this.number == 6) return "caw";
-    else if (this.number == 7) return "chirp";
-    else if (this.number == 8) return "bask";
-    else if (this.number == 9) return "croak";
-    else if (this.number == 10) return "spin";
+    return "spin";
   }
   location(isFirstAppearance) {
-    if (this.number == 2) return "Where the stream runs blue";
-    else if (this.number == 3) return `In ${article(isFirstAppearance)} hole in a tree`;
-    else if (this.number == 4) return "By the reeds on the shore";
-    else if (this.number == 5) return `In ${article(isFirstAppearance)} snug beehive`;
-    else if (this.number == 6) return `In ${article(isFirstAppearance)} nest made of sticks`;
-    else if (this.number == 7) return "In the grass soft and even";
-    else if (this.number == 8) return "On the old mossy gate";
-    else if (this.number == 9) return "Where the cool pools shine";
-    else if (this.number == 10) return `In ${article(isFirstAppearance)} sly little den`;
+    return `In ${article(isFirstAppearance)} sly little den`;
 
     function article(isFirstAppearance) {
       if (isFirstAppearance) {
@@ -74,26 +80,10 @@ class VerseNumber {
     }
   }
   mother() {
-    if (this.number == 2) return "an old mother fish";
-    else if (this.number == 3) return "an old mother bluebird";
-    else if (this.number == 4) return "an old mother muskrat";
-    else if (this.number == 5) return "a mother honey bee";
-    else if (this.number == 6) return "a black mother crow";
-    else if (this.number == 7) return "a mother cricket";
-    else if (this.number == 8) return "a brown mother lizard";
-    else if (this.number == 9) return "a green mother frog";
-    else if (this.number == 10) return "a gray mother spider";
+    return "a gray mother spider";
   }
   children() {
-    if (this.number == 2) return "fishes";
-    else if (this.number == 3) return "birdies";
-    else if (this.number == 4) return "ratties";
-    else if (this.number == 5) return "honies";
-    else if (this.number == 6) return "crows";
-    else if (this.number == 7) return "crickets";
-    else if (this.number == 8) return "lizards";
-    else if (this.number == 9) return "froggies";
-    else if (this.number == 10) return "spiders";
+    return "spiders";
   }
 }
 
@@ -115,6 +105,167 @@ class VerseNumber1 extends VerseNumber {
   }
 }
 
+class VerseNumber2 extends VerseNumber {
+  actionDone() {
+    return "swam and they swam";
+  }
+  action() {
+    return "swim";
+  }
+  location() {
+    return "Where the stream runs blue";
+  }
+  mother() {
+    return "an old mother fish";
+  }
+  children() {
+    return "fishes";
+  }
+}
+
+class VerseNumber3 extends VerseNumber {
+  actionDone() {
+    return "sang and they sang";
+  }
+  action() {
+    return "sing";
+  }
+  location(isFirstAppearance) {
+    return `In ${article(isFirstAppearance)} hole in a tree`;
+
+    function article(isFirstAppearance) {
+      if (isFirstAppearance) {
+        return "a";
+      } else {
+        return "their";
+      }
+    }
+  }
+  mother() {
+    return "an old mother bluebird";
+  }
+  children() {
+    return "birdies";
+  }
+}
+class VerseNumber4 extends VerseNumber {
+  actionDone() {
+    return "dived and they splashed";
+  }
+  action() {
+    return "dive";
+  }
+  location() {
+    return "By the reeds on the shore";
+  }
+  mother() {
+    return "an old mother muskrat";
+  }
+  children() {
+    return "ratties";
+  }
+}
+class VerseNumber5 extends VerseNumber {
+  actionDone() {
+    return "buzzed and they buzzed";
+  }
+  action() {
+    return "buzz";
+  }
+  location(isFirstAppearance) {
+    return `In ${article(isFirstAppearance)} snug beehive`;
+
+    function article(isFirstAppearance) {
+      if (isFirstAppearance) {
+        return "a";
+      } else {
+        return "their";
+      }
+    }
+  }
+  mother() {
+    return "a mother honey bee";
+  }
+  children() {
+    return "honies";
+  }
+}
+class VerseNumber6 extends VerseNumber {
+  actionDone() {
+    return "cawed and they cawed";
+  }
+  action() {
+    return "caw";
+  }
+  location(isFirstAppearance) {
+    return `In ${article(isFirstAppearance)} nest made of sticks`;
+
+    function article(isFirstAppearance) {
+      if (isFirstAppearance) {
+        return "a";
+      } else {
+        return "their";
+      }
+    }
+  }
+  mother() {
+    return "a black mother crow";
+  }
+  children() {
+    return "crows";
+  }
+}
+class VerseNumber7 extends VerseNumber {
+  actionDone() {
+    return "chirped cheery notes";
+  }
+  action() {
+    return "chirp";
+  }
+  location() {
+    return "In the grass soft and even";
+  }
+  mother() {
+    return "a mother cricket";
+  }
+  children() {
+    return "crickets";
+  }
+}
+class VerseNumber8 extends VerseNumber {
+  actionDone() {
+    return "basked, and they basked";
+  }
+  action() {
+    return "bask";
+  }
+  location() {
+    return "On the old mossy gate";
+  }
+  mother() {
+    return "a brown mother lizard";
+  }
+  children() {
+    return "lizards";
+  }
+}
+class VerseNumber9 extends VerseNumber {
+  actionDone() {
+    return "croaked and they croaked";
+  }
+  action() {
+    return "croak";
+  }
+  location() {
+    return "Where the cool pools shine";
+  }
+  mother() {
+    return "a green mother frog";
+  }
+  children() {
+    return "froggies";
+  }
+}
 class NumberOfChildren {
   constructor(number) {
     this.number = number;
