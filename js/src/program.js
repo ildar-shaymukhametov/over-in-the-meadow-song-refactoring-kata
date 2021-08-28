@@ -19,21 +19,6 @@ export class Program {
     }
     return result.join("\n\n");
   }
-  location(number, isFirstAppearance) {
-    return new VerseNumber(number).location(isFirstAppearance);
-  }
-  mother(number) {
-    return new VerseNumber(number).mother();
-  }
-  children(number) {
-    return new VerseNumber(number).children();
-  }
-  action(number) {
-    return new VerseNumber(number).action();
-  }
-  actionDone(number) {
-    return new VerseNumber(number).actionDone();
-  }
 }
 
 class VerseNumber {
