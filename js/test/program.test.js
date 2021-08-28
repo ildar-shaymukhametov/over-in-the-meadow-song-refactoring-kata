@@ -99,18 +99,18 @@ test("random verses", () => {
     "Over in the meadow,\n" +
     "Where the stream runs blue,\n" +
     "Lived an old mother fish\n" +
-    "And her little fishes two.\n" +
+    "And her little fish one.\n" +
     "\"Swim!\" said the mother;\n" +
-    "\"We swim!\" said the two.\n" +
+    "\"I swim!\" said the one.\n" +
     "So they swam and they swam,\n" +
     "Where the stream runs blue.\n" +
     "\n" +
     "Over in the meadow,\n" +
     "In the sand in the sun,\n" +
     "Lived an old mother toadie\n" +
-    "And her little toadie one.\n" +
+    "And her little toadies two.\n" +
     "\"Jump!\" said the mother;\n" +
-    "\"I jump!\" said the one.\n" +
+    "\"We jump!\" said the two.\n" +
     "So they jumped and they jumped,\n" +
     "In the sand in the sun.\n" +
     "\n" +
