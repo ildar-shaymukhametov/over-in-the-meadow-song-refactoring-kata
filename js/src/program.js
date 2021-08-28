@@ -5,15 +5,16 @@ export class Program {
     var result = [];
     for (let i = 1; i <= 10; i++) {
       const numberOfChildren = new NumberOfChildren(i);
+      const verseNumber = new VerseNumber(i);
       result.push(
         "Over in the meadow,\n" +
-        `${this.location(i, true)},\n` +
-        `Lived ${this.mother(i)}\n` +
-        `And her little ${this.children(i)} ${numberOfChildren.toWords()}.\n` +
-        `\"${capitalize(this.action(i))}!\" said the mother;\n` +
-        `\"${numberOfChildren.pronoun()} ${this.action(i)}!\" said the ${numberOfChildren.toWords()}.\n` +
-        `So they ${this.actionDone(i)},\n` +
-        `${this.location(i)}.`
+        `${verseNumber.location(true)},\n` +
+        `Lived ${verseNumber.mother()}\n` +
+        `And her little ${verseNumber.children()} ${numberOfChildren.toWords()}.\n` +
+        `\"${capitalize(verseNumber.action())}!\" said the mother;\n` +
+        `\"${numberOfChildren.pronoun()} ${verseNumber.action()}!\" said the ${numberOfChildren.toWords()}.\n` +
+        `So they ${verseNumber.actionDone()},\n` +
+        `${verseNumber.location()}.`
       );
     }
     return result.join("\n\n");
