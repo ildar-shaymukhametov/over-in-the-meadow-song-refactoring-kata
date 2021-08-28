@@ -5,7 +5,7 @@ export class Program {
     var result = [];
     for (let i = 1; i <= 10; i++) {
       const numberOfChildren = new NumberOfChildren(i);
-      const verseNumber = new VerseNumber(i);
+      const verseNumber = this.verseNumberFor(i);
       result.push(
         "Over in the meadow,\n" +
         `${verseNumber.location(true)},\n` +
@@ -19,6 +19,13 @@ export class Program {
     }
     return result.join("\n\n");
   }
+  verseNumberFor(number) {
+    var result;
+    if (number == 1) result = VerseNumber1;
+    else result = VerseNumber;
+
+    return new result(number);
+  }
 }
 
 class VerseNumber {
@@ -26,7 +33,6 @@ class VerseNumber {
     this.number = number;
   }
   actionDone() {
-    if (this.number == 1) return "jumped and they jumped";
     if (this.number == 2) return "swam and they swam";
     if (this.number == 3) return "sang and they sang";
     if (this.number == 4) return "dived and they splashed";
@@ -38,7 +44,6 @@ class VerseNumber {
     if (this.number == 10) return "spun silken webs";
   }
   action() {
-    if (this.number == 1) return "jump";
     if (this.number == 2) return "swim";
     if (this.number == 3) return "sing";
     if (this.number == 4) return "dive";
@@ -50,7 +55,6 @@ class VerseNumber {
     if (this.number == 10) return "spin";
   }
   location(isFirstAppearance) {
-    if (this.number == 1) return "In the sand in the sun";
     if (this.number == 2) return "Where the stream runs blue";
     if (this.number == 3) return `In ${article(isFirstAppearance)} hole in a tree`;
     if (this.number == 4) return "By the reeds on the shore";
@@ -70,7 +74,6 @@ class VerseNumber {
     }
   }
   mother() {
-    if (this.number == 1) return "an old mother toadie";
     if (this.number == 2) return "an old mother fish";
     if (this.number == 3) return "an old mother bluebird";
     if (this.number == 4) return "an old mother muskrat";
@@ -82,7 +85,6 @@ class VerseNumber {
     if (this.number == 10) return "a gray mother spider";
   }
   children() {
-    if (this.number == 1) return "toadie";
     if (this.number == 2) return "fishes";
     if (this.number == 3) return "birdies";
     if (this.number == 4) return "ratties";
@@ -92,6 +94,24 @@ class VerseNumber {
     if (this.number == 8) return "lizards";
     if (this.number == 9) return "froggies";
     if (this.number == 10) return "spiders";
+  }
+}
+
+class VerseNumber1 extends VerseNumber {
+  actionDone() {
+    return "jumped and they jumped";
+  }
+  action() {
+    return "jump";
+  }
+  location() {
+    return "In the sand in the sun";
+  }
+  mother() {
+    return "an old mother toadie";
+  }
+  children() {
+    return "toadie";
   }
 }
 
