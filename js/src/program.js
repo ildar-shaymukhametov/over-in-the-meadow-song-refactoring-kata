@@ -96,7 +96,7 @@ function toWords(number) {
   return new NumberOfChildren(number).toWords();
 }
 function pronoun(number) {
-  return new NumberOfChildren(number).pronoun(number);
+  return new NumberOfChildren(number).pronoun();
 }
 
 class NumberOfChildren {
@@ -115,8 +115,8 @@ class NumberOfChildren {
     if (this.number == 9) return "nine";
     if (this.number == 10) return "ten";
   }
-  pronoun(number) {
-    if (number == 1) {
+  pronoun() {
+    if (this.number == 1) {
       return "I";
     } else {
       return "We";
