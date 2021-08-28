@@ -50,7 +50,7 @@ export class Program {
         result = VerseNumber9;
         break;
       default:
-        result = VerseNumber;
+        result = VerseNumber10;
         break;
     }
 
@@ -58,7 +58,7 @@ export class Program {
   }
 }
 
-class VerseNumber {
+class VerseNumber10 {
   constructor(number) {
     this.number = number;
   }
@@ -87,7 +87,7 @@ class VerseNumber {
   }
 }
 
-class VerseNumber1 extends VerseNumber {
+class VerseNumber1 extends VerseNumber10 {
   actionDone() {
     return "jumped and they jumped";
   }
@@ -105,7 +105,7 @@ class VerseNumber1 extends VerseNumber {
   }
 }
 
-class VerseNumber2 extends VerseNumber {
+class VerseNumber2 extends VerseNumber10 {
   actionDone() {
     return "swam and they swam";
   }
@@ -123,7 +123,7 @@ class VerseNumber2 extends VerseNumber {
   }
 }
 
-class VerseNumber3 extends VerseNumber {
+class VerseNumber3 extends VerseNumber10 {
   actionDone() {
     return "sang and they sang";
   }
@@ -148,7 +148,7 @@ class VerseNumber3 extends VerseNumber {
     return "birdies";
   }
 }
-class VerseNumber4 extends VerseNumber {
+class VerseNumber4 extends VerseNumber10 {
   actionDone() {
     return "dived and they splashed";
   }
@@ -165,7 +165,7 @@ class VerseNumber4 extends VerseNumber {
     return "ratties";
   }
 }
-class VerseNumber5 extends VerseNumber {
+class VerseNumber5 extends VerseNumber10 {
   actionDone() {
     return "buzzed and they buzzed";
   }
@@ -190,7 +190,7 @@ class VerseNumber5 extends VerseNumber {
     return "honies";
   }
 }
-class VerseNumber6 extends VerseNumber {
+class VerseNumber6 extends VerseNumber10 {
   actionDone() {
     return "cawed and they cawed";
   }
@@ -215,7 +215,7 @@ class VerseNumber6 extends VerseNumber {
     return "crows";
   }
 }
-class VerseNumber7 extends VerseNumber {
+class VerseNumber7 extends VerseNumber10 {
   actionDone() {
     return "chirped cheery notes";
   }
@@ -232,7 +232,7 @@ class VerseNumber7 extends VerseNumber {
     return "crickets";
   }
 }
-class VerseNumber8 extends VerseNumber {
+class VerseNumber8 extends VerseNumber10 {
   actionDone() {
     return "basked, and they basked";
   }
@@ -249,7 +249,7 @@ class VerseNumber8 extends VerseNumber {
     return "lizards";
   }
 }
-class VerseNumber9 extends VerseNumber {
+class VerseNumber9 extends VerseNumber10 {
   actionDone() {
     return "croaked and they croaked";
   }
