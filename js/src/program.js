@@ -1,7 +1,9 @@
 const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
 
 export class Program {
-  constructor() {
+  constructor({ verseRandomizer, animalsRandomizer } = {}) {
+    this.verseRandomizer = verseRandomizer;
+    this.animalsRandomizer = animalsRandomizer;
     this.animals = [
       new Animals("toadie", "toadie"),
       new Animals("fish", "fish"),
@@ -18,13 +20,13 @@ export class Program {
   song() {
     var result = [];
     for (let i = 1; i <= 10; i++) {
-      result.push(this.verse({ verseNumber: i }));
+      result.push(this.verse(this.verseRandomizer ? this.verseRandomizer.next() : i, i ));
     }
     return result.join("\n\n");
   }
-  verse({ verseNumber, orderNumber = verseNumber, animalsNumber = verseNumber - 1 } = {}) {
+  verse(verseNumber, orderNumber) {
     const childrenCount = this.childrenCountFor(orderNumber);
-    const verse = this.verseFor(verseNumber, animalsNumber);
+    const verse = this.verseFor(verseNumber);
 
     return "Over in the meadow,\n" +
       `${verse.firstLocation()},\n` +
@@ -45,7 +47,7 @@ export class Program {
 
     return new result(number);
   }
-  verseFor(number, animalsNumber) {
+  verseFor(number) {
     var result;
     try {
       result = eval(`Verse${number}`);
@@ -53,39 +55,7 @@ export class Program {
       result = Verse;
     }
 
-    return new result(this.animals[animalsNumber]);
-  }
-}
-
-export class RandomSong extends Program {
-  constructor(randomizer) {
-    super();
-    this.randomizer = randomizer;
-  }
-  song() {
-    var result = [];
-    var nextNumber;
-    var orderNumber = 1;
-    while (nextNumber = this.randomizer.next()) {
-      result.push(this.verse({ verseNumber: nextNumber, orderNumber: orderNumber++ }));
-    }
-    return result.join("\n\n");
-  }
-}
-
-export class RandomAnimalSong extends Program {
-  constructor(randomizer) {
-    super();
-    this.randomizer = randomizer;
-  }
-  song() {
-    var result = [];
-    var nextNumber;
-    var verseNumber = 1;
-    while ((nextNumber = this.randomizer.next()) !== null) {
-      result.push(this.verse({ verseNumber: verseNumber++, animalsNumber: nextNumber }));
-    }
-    return result.join("\n\n");
+    return new result(this.animals[this.animalsRandomizer ? this.animalsRandomizer.next() : number - 1]);
   }
 }
 
