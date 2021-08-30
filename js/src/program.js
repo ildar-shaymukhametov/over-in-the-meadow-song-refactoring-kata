@@ -20,10 +20,15 @@ export class Program {
   song() {
     var result = [];
     for (let i = 1; i <= 10; i++) {
-      result.push(this.verse(this.verseRandomizer ? this.verseRandomizer.next() : i, i ));
+      result.push(this.verse(verseNumber.call(this, i), i));
     }
     return result.join("\n\n");
+
+    function verseNumber(i) {
+      return this.verseRandomizer ? this.verseRandomizer.next() : i;
+    }
   }
+
   verse(verseNumber, orderNumber) {
     const childrenCount = this.childrenCountFor(orderNumber);
     const verse = this.verseFor(verseNumber);
@@ -55,8 +60,13 @@ export class Program {
       result = Verse;
     }
 
-    return new result(this.animals[this.animalsRandomizer ? this.animalsRandomizer.next() : number - 1]);
+    return new result(animal.call(this, number));
+
+    function animal(number) {
+      return this.animals[this.animalsRandomizer ? this.animalsRandomizer.next() : number - 1];
+    }
   }
+
 }
 
 class Article {
