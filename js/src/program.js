@@ -29,7 +29,7 @@ export class Program {
     }
   }
 
-  verse(verseNumber, orderNumber) {
+  verse(verseNumber, orderNumber = verseNumber) {
     const childrenCount = this.childrenCountFor(orderNumber);
     const data = this.verseDataFor(verseNumber);
 
