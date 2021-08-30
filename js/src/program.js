@@ -31,16 +31,16 @@ export class Program {
 
   verse(verseNumber, orderNumber) {
     const childrenCount = this.childrenCountFor(orderNumber);
-    const verse = this.verseFor(verseNumber);
+    const data = this.verseDataFor(verseNumber);
 
     return "Over in the meadow,\n" +
-      `${verse.firstLocation()},\n` +
-      `Lived ${verse.mother()}\n` +
-      `And her little ${childrenCount.pluralize(verse.child())} ${childrenCount}.\n` +
-      `\"${capitalize(verse.action())}!\" said the mother;\n` +
-      `\"${childrenCount.pronoun()} ${verse.action()}!\" said the ${childrenCount}.\n` +
-      `So they ${verse.actionDone()},\n` +
-      `${verse.secondLocation()}.`;
+      `${data.firstLocation()},\n` +
+      `Lived ${data.mother()}\n` +
+      `And her little ${childrenCount.pluralize(data.child())} ${childrenCount}.\n` +
+      `\"${capitalize(data.action())}!\" said the mother;\n` +
+      `\"${childrenCount.pronoun()} ${data.action()}!\" said the ${childrenCount}.\n` +
+      `So they ${data.actionDone()},\n` +
+      `${data.secondLocation()}.`;
   }
   childrenCountFor(number) {
     var result;
@@ -52,12 +52,12 @@ export class Program {
 
     return new result(number);
   }
-  verseFor(number) {
+  verseDataFor(number) {
     var result;
     try {
-      result = eval(`Verse${number}`);
+      result = eval(`VerseData${number}`);
     } catch (error) {
-      result = Verse;
+      result = VerseData;
     }
 
     return new result(animal.call(this, number));
@@ -82,7 +82,7 @@ class Article {
   }
 }
 
-class Verse {
+class VerseData {
   constructor(animals) {
     this.animals = animals;
   }
@@ -97,7 +97,7 @@ class Verse {
   }
 }
 
-class Verse10 extends Verse {
+class VerseData10 extends VerseData {
   actionDone() {
     return "spun silken webs";
   }
@@ -112,7 +112,7 @@ class Verse10 extends Verse {
   }
 }
 
-class Verse1 extends Verse {
+class VerseData1 extends VerseData {
   actionDone() {
     return "jumped and they jumped";
   }
@@ -127,7 +127,7 @@ class Verse1 extends Verse {
   }
 }
 
-class Verse2 extends Verse {
+class VerseData2 extends VerseData {
   actionDone() {
     return "swam and they swam";
   }
@@ -142,7 +142,7 @@ class Verse2 extends Verse {
   }
 }
 
-class Verse3 extends Verse {
+class VerseData3 extends VerseData {
   actionDone() {
     return "sang and they sang";
   }
@@ -156,7 +156,7 @@ class Verse3 extends Verse {
     return `an old mother ${this.animals.mother}`;
   }
 }
-class Verse4 extends Verse {
+class VerseData4 extends VerseData {
   actionDone() {
     return "dived and they splashed";
   }
@@ -170,7 +170,7 @@ class Verse4 extends Verse {
     return `an old mother ${this.animals.mother}`;
   }
 }
-class Verse5 extends Verse {
+class VerseData5 extends VerseData {
   actionDone() {
     return "buzzed and they buzzed";
   }
@@ -184,7 +184,7 @@ class Verse5 extends Verse {
     return `a mother honey ${this.animals.mother}`;
   }
 }
-class Verse6 extends Verse {
+class VerseData6 extends VerseData {
   actionDone() {
     return "cawed and they cawed";
   }
@@ -198,7 +198,7 @@ class Verse6 extends Verse {
     return `a black mother ${this.animals.mother}`;
   }
 }
-class Verse7 extends Verse {
+class VerseData7 extends VerseData {
   actionDone() {
     return "chirped cheery notes";
   }
@@ -212,7 +212,7 @@ class Verse7 extends Verse {
     return `a mother ${this.animals.mother}`;
   }
 }
-class Verse8 extends Verse {
+class VerseData8 extends VerseData {
   actionDone() {
     return "basked, and they basked";
   }
@@ -226,7 +226,7 @@ class Verse8 extends Verse {
     return `a brown mother ${this.animals.mother}`;
   }
 }
-class Verse9 extends Verse {
+class VerseData9 extends VerseData {
   actionDone() {
     return "croaked and they croaked";
   }
