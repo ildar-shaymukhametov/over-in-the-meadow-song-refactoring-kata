@@ -1,93 +1,314 @@
+const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
+
 export class Program {
+  constructor({ verseRandomizer, animalsRandomizer } = {}) {
+    this.verseRandomizer = verseRandomizer;
+    this.animalsRandomizer = animalsRandomizer;
+    this.animals = [
+      new Animals("toadie", "toadie"),
+      new Animals("fish", "fish"),
+      new Animals("bluebird", "birdie"),
+      new Animals("muskrat", "rattie"),
+      new Animals("bee", "honie"),
+      new Animals("crow", "crow"),
+      new Animals("cricket", "cricket"),
+      new Animals("lizard", "lizard"),
+      new Animals("frog", "froggie"),
+      new Animals("spider", "spider"),
+    ];
+  }
   song() {
+    var result = [];
+    for (let i = 1; i <= 10; i++) {
+      result.push(this.verse(verseNumber.call(this, i), i));
+    }
+    return result.join("\n\n");
+
+    function verseNumber(i) {
+      return this.verseRandomizer ? this.verseRandomizer.next() : i;
+    }
+  }
+
+  verse(verseNumber, orderNumber) {
+    const childrenCount = this.childrenCountFor(orderNumber);
+    const verse = this.verseFor(verseNumber);
+
     return "Over in the meadow,\n" +
-      "In the sand, in the sun,\n" +
-      "Lived an old mother toadie\n" +
-      "And her little toadie one.\n" +
-      "\"Jump!\" said the mother;\n" +
-      "\"I jump!\" said the one.\n" +
-      "So they jumped and they jumped,\n" +
-      "In the sand in the sun.\n" +
-      "\n" +
-      "Over in the meadow,\n" +
-      "Where the stream runs blue,\n" +
-      "Lived an old mother fish\n" +
-      "And her little fishes two.\n" +
-      "\"Swim!\" said the mother;\n" +
-      "\"We swim!\" said the two.\n" +
-      "So they swam and they swam,\n" +
-      "Where the stream runs blue.\n" +
-      "\n" +
-      "Over in the meadow,\n" +
-      "In a hole in a tree,\n" +
-      "Lived an old mother bluebird\n" +
-      "And her little birdies three.\n" +
-      "\"Sing!\" said the mother;\n" +
-      "\"We sing!\" said the three.\n" +
-      "So they sang and they sang,\n" +
-      "In their home in a tree.\n" +
-      "\n" +
-      "Over in the meadow,\n" +
-      "By the reeds on the shore,\n" +
-      "Lived an old mother muskrat\n" +
-      "And her little ratties four.\n" +
-      "\"Dive!\" said the mother;\n" +
-      "\"We dive!\" said the four.\n" +
-      "So they dived and they splashed,\n" +
-      "By the reeds on the shore.\n" +
-      "\n" +
-      "Over in the meadow,\n" +
-      "In a snug beehive,\n" +
-      "Lived a mother honey bee\n" +
-      "And her little honies five.\n" +
-      "\"Buzz!\" said the mother;\n" +
-      "\"We buzz!\" said the five.\n" +
-      "So they buzzed and they buzzed,\n" +
-      "In their snug beehive.\n" +
-      "\n" +
-      "Over in the meadow,\n" +
-      "In a nest made of sticks,\n" +
-      "Lived a black mother crow\n" +
-      "And her little crows six.\n" +
-      "\"Caw!\" said the mother;\n" +
-      "\"We caw!\" said the six.\n" +
-      "So they cawed and they cawed,\n" +
-      "In their nest made of sticks.\n" +
-      "\n" +
-      "Over in the meadow,\n" +
-      "In the grass soft and even,\n" +
-      "Lived a mother cricket\n" +
-      "And her little crickets seven.\n" +
-      "\"Chirp!\" said the mother;\n" +
-      "\"We chirp!\" said the seven.\n" +
-      "So they chirped cheery notes,\n" +
-      "In the grass soft and even.\n" +
-      "\n" +
-      "Over in the meadow,\n" +
-      "On an old mossy gate,\n" +
-      "Lived a brown mother lizard\n" +
-      "And her little lizards eight.\n" +
-      "\"Bask!\" said the mother;\n" +
-      "\"We bask!\" said the eight.\n" +
-      "So they basked, and they basked,\n" +
-      "On the old mossy gate.\n" +
-      "\n" +
-      "Over in the meadow,\n" +
-      "Where the cool pools shine,\n" +
-      "Lived a green mother frog\n" +
-      "And her little froggies nine.\n" +
-      "\"Croak!\" said the mother;\n" +
-      "\"We croak!\" said the nine.\n" +
-      "So they croaked and they croaked,\n" +
-      "Where the cool pools shine.\n" +
-      "\n" +
-      "Over in the meadow,\n" +
-      "In a sly little den,\n" +
-      "Lived a gray mother spider\n" +
-      "And her little spiders ten.\n" +
-      "\"Spin!\" said the mother;\n" +
-      "\"We spin!\" said the ten.\n" +
-      "So they spun silken webs,\n" +
-      "In their sly little den."
+      `${verse.firstLocation()},\n` +
+      `Lived ${verse.mother()}\n` +
+      `And her little ${childrenCount.pluralize(verse.child())} ${childrenCount}.\n` +
+      `\"${capitalize(verse.action())}!\" said the mother;\n` +
+      `\"${childrenCount.pronoun()} ${verse.action()}!\" said the ${childrenCount}.\n` +
+      `So they ${verse.actionDone()},\n` +
+      `${verse.secondLocation()}.`;
+  }
+  childrenCountFor(number) {
+    var result;
+    try {
+      result = eval(`ChildrenCount${number}`);
+    } catch (error) {
+      result = ChildrenCount;
+    }
+
+    return new result(number);
+  }
+  verseFor(number) {
+    var result;
+    try {
+      result = eval(`Verse${number}`);
+    } catch (error) {
+      result = Verse;
+    }
+
+    return new result(animal.call(this, number));
+
+    function animal(number) {
+      return this.animals[this.animalsRandomizer ? this.animalsRandomizer.next() : number - 1];
+    }
+  }
+
+}
+
+class Article {
+  constructor(isFirstAppearance) {
+    this.isFirstAppearance = isFirstAppearance;
+  }
+  toString() {
+    if (this.isFirstAppearance) {
+      return "a";
+    } else {
+      return "their";
+    }
+  }
+}
+
+class Verse {
+  constructor(animals) {
+    this.animals = animals;
+  }
+  firstLocation() {
+    return this.location(true);
+  }
+  secondLocation() {
+    return this.location();
+  }
+  child() {
+    return this.animals.child;
+  }
+}
+
+class Verse10 extends Verse {
+  actionDone() {
+    return "spun silken webs";
+  }
+  action() {
+    return "spin";
+  }
+  location(isFirstAppearance) {
+    return `In ${new Article(isFirstAppearance)} sly little den`;
+  }
+  mother() {
+    return `a gray mother ${this.animals.mother}`;
+  }
+}
+
+class Verse1 extends Verse {
+  actionDone() {
+    return "jumped and they jumped";
+  }
+  action() {
+    return "jump";
+  }
+  location() {
+    return "In the sand in the sun";
+  }
+  mother() {
+    return `an old mother ${this.animals.mother}`;
+  }
+}
+
+class Verse2 extends Verse {
+  actionDone() {
+    return "swam and they swam";
+  }
+  action() {
+    return "swim";
+  }
+  location() {
+    return "Where the stream runs blue";
+  }
+  mother() {
+    return `an old mother ${this.animals.mother}`;
+  }
+}
+
+class Verse3 extends Verse {
+  actionDone() {
+    return "sang and they sang";
+  }
+  action() {
+    return "sing";
+  }
+  location(isFirstAppearance) {
+    return `In ${new Article(isFirstAppearance)} hole in a tree`;
+  }
+  mother() {
+    return `an old mother ${this.animals.mother}`;
+  }
+}
+class Verse4 extends Verse {
+  actionDone() {
+    return "dived and they splashed";
+  }
+  action() {
+    return "dive";
+  }
+  location() {
+    return "By the reeds on the shore";
+  }
+  mother() {
+    return `an old mother ${this.animals.mother}`;
+  }
+}
+class Verse5 extends Verse {
+  actionDone() {
+    return "buzzed and they buzzed";
+  }
+  action() {
+    return "buzz";
+  }
+  location(isFirstAppearance) {
+    return `In ${new Article(isFirstAppearance)} snug beehive`;
+  }
+  mother() {
+    return `a mother honey ${this.animals.mother}`;
+  }
+}
+class Verse6 extends Verse {
+  actionDone() {
+    return "cawed and they cawed";
+  }
+  action() {
+    return "caw";
+  }
+  location(isFirstAppearance) {
+    return `In ${new Article(isFirstAppearance)} nest made of sticks`;
+  }
+  mother() {
+    return `a black mother ${this.animals.mother}`;
+  }
+}
+class Verse7 extends Verse {
+  actionDone() {
+    return "chirped cheery notes";
+  }
+  action() {
+    return "chirp";
+  }
+  location() {
+    return "In the grass soft and even";
+  }
+  mother() {
+    return `a mother ${this.animals.mother}`;
+  }
+}
+class Verse8 extends Verse {
+  actionDone() {
+    return "basked, and they basked";
+  }
+  action() {
+    return "bask";
+  }
+  location() {
+    return "On the old mossy gate";
+  }
+  mother() {
+    return `a brown mother ${this.animals.mother}`;
+  }
+}
+class Verse9 extends Verse {
+  actionDone() {
+    return "croaked and they croaked";
+  }
+  action() {
+    return "croak";
+  }
+  location() {
+    return "Where the cool pools shine";
+  }
+  mother() {
+    return `a green mother ${this.animals.mother}`;
+  }
+}
+class ChildrenCount {
+  pronoun() {
+    return "We";
+  }
+  pluralize(child) {
+    return `${child}${child.endsWith("sh") ? "es" : "s"}`;
+  }
+}
+
+class ChildrenCount2 extends ChildrenCount {
+  toString() {
+    return "two";
+  }
+}
+class ChildrenCount3 extends ChildrenCount {
+  toString() {
+    return "three";
+  }
+}
+class ChildrenCount4 extends ChildrenCount {
+  toString() {
+    return "four";
+  }
+}
+class ChildrenCount5 extends ChildrenCount {
+  toString() {
+    return "five";
+  }
+}
+class ChildrenCount6 extends ChildrenCount {
+  toString() {
+    return "six";
+  }
+}
+class ChildrenCount7 extends ChildrenCount {
+  toString() {
+    return "seven";
+  }
+}
+class ChildrenCount8 extends ChildrenCount {
+  toString() {
+    return "eight";
+  }
+}
+class ChildrenCount9 extends ChildrenCount {
+  toString() {
+    return "nine";
+  }
+}
+class ChildrenCount10 extends ChildrenCount {
+  toString() {
+    return "ten";
+  }
+}
+class ChildrenCount1 extends ChildrenCount {
+  toString() {
+    return "one";
+  }
+  pronoun() {
+    return "I";
+  }
+  pluralize(child) {
+    return child;
+  }
+}
+
+class Animals {
+  constructor(mother, child) {
+    this.mother = mother;
+    this.child = child;
   }
 }
