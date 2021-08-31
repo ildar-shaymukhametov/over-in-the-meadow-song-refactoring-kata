@@ -58,29 +58,16 @@ export class Program {
   }
 }
 
-class Article {
-  constructor(isFirstAppearance) {
-    this.isFirstAppearance = isFirstAppearance;
-  }
-  toString() {
-    if (this.isFirstAppearance) {
-      return "a";
-    } else {
-      return "their";
-    }
-  }
-}
-
 class VerseData {
   constructor(animals, childrenCount) {
     this.animals = animals;
     this._childrenCount = childrenCount;
   }
   firstLocation() {
-    return this.location(true);
+    return this.location("a");
   }
   secondLocation() {
-    return this.location();
+    return this.location("their");
   }
   child() {
     return this.animals.child;
@@ -103,8 +90,8 @@ class VerseData10 extends VerseData {
   action() {
     return "spin";
   }
-  location(isFirstAppearance) {
-    return `In ${new Article(isFirstAppearance)} sly little den`;
+  location(article) {
+    return `In ${article} sly little den`;
   }
   mother() {
     return `a gray mother ${this.animals.mother}`;
@@ -148,8 +135,8 @@ class VerseData3 extends VerseData {
   action() {
     return "sing";
   }
-  location(isFirstAppearance) {
-    return `In ${new Article(isFirstAppearance)} hole in a tree`;
+  location(article) {
+    return `In ${article} hole in a tree`;
   }
   mother() {
     return `an old mother ${this.animals.mother}`;
@@ -176,8 +163,8 @@ class VerseData5 extends VerseData {
   action() {
     return "buzz";
   }
-  location(isFirstAppearance) {
-    return `In ${new Article(isFirstAppearance)} snug beehive`;
+  location(article) {
+    return `In ${article} snug beehive`;
   }
   mother() {
     return `a mother honey ${this.animals.mother}`;
@@ -190,8 +177,8 @@ class VerseData6 extends VerseData {
   action() {
     return "caw";
   }
-  location(isFirstAppearance) {
-    return `In ${new Article(isFirstAppearance)} nest made of sticks`;
+  location(article) {
+    return `In ${article} nest made of sticks`;
   }
   mother() {
     return `a black mother ${this.animals.mother}`;
