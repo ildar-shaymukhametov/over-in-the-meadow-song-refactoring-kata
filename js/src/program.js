@@ -22,9 +22,11 @@ export class Program {
     for (let i = 1; i <= 10; i++) {
       result.push(
         verse(
-          this.verseDataFor(
+          verseDataFor(
             verseNumber(this.verseRandomizer, i),
-            i
+            i,
+            this.animals,
+            this.animalsRandomizer
           )
         )
       );
@@ -45,22 +47,22 @@ export class Program {
         `So they ${data.actionDone()},\n` +
         `${data.secondLocation()}.`;
     }
-  }
-  verseDataFor(number, orderNumber) {
-    var result;
-    try {
-      result = eval(`VerseData${number}`);
-    } catch (error) {
-      result = VerseData;
+
+    function verseDataFor(number, orderNumber, animals, animalsRandomizer) {
+      var result;
+      try {
+        result = eval(`VerseData${number}`);
+      } catch (error) {
+        result = VerseData;
+      }
+
+      return new result(animal(), ChildrenCount.for(orderNumber));
+
+      function animal() {
+        return animals[animalsRandomizer ? animalsRandomizer.next() : number - 1];
+      }
     }
-
-    return new result(animal.call(this, number), ChildrenCount.for(orderNumber));
-
-    function animal(number) {
-      return this.animals[this.animalsRandomizer ? this.animalsRandomizer.next() : number - 1];
-    }
   }
-
 }
 
 class Article {
