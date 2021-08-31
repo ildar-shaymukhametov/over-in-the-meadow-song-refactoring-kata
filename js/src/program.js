@@ -46,17 +46,6 @@ export class Program {
         `${data.secondLocation()}.`;
     }
   }
-
-  childrenCountFor(number) {
-    var result;
-    try {
-      result = eval(`ChildrenCount${number}`);
-    } catch (error) {
-      result = ChildrenCount;
-    }
-
-    return new result(number);
-  }
   verseDataFor(number, orderNumber) {
     var result;
     try {
@@ -65,7 +54,7 @@ export class Program {
       result = VerseData;
     }
 
-    return new result(animal.call(this, number), this.childrenCountFor(orderNumber));
+    return new result(animal.call(this, number), ChildrenCount.for(orderNumber));
 
     function animal(number) {
       return this.animals[this.animalsRandomizer ? this.animalsRandomizer.next() : number - 1];
@@ -261,6 +250,16 @@ class ChildrenCount {
   }
   pluralize(child) {
     return `${child}${child.endsWith("sh") ? "es" : "s"}`;
+  }
+  static for(number) {
+    var result;
+    try {
+      result = eval(`ChildrenCount${number}`);
+    } catch (error) {
+      result = ChildrenCount;
+    }
+
+    return new result(number);
   }
 }
 
