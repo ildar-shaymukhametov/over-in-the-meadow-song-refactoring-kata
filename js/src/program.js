@@ -1,9 +1,9 @@
 const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
 
 export class Program {
-  constructor({ verseRandomizer, animalsRandomizer } = {}) {
-    this.verseRandomizer = verseRandomizer;
+  constructor({ animalsRandomizer, verseOrder = new AscendingOrder() } = {}) {
     this.animalsRandomizer = animalsRandomizer;
+    this.verseOrder = verseOrder;
     this.animals = [
       new Animals("toadie", "toadie"),
       new Animals("fish", "fish"),
@@ -16,26 +16,25 @@ export class Program {
       new Animals("frog", "froggie"),
       new Animals("spider", "spider"),
     ];
+    this.verses = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   }
   song() {
     var result = [];
-    for (let i = 1; i <= 10; i++) {
+    var next;
+    var orderNumber = 1;
+    while ((next = this.verseOrder.next(this.verses)) !== null) {
       result.push(
         verse(
           verseDataFor(
-            verseNumber(this.verseRandomizer, i),
-            i,
+            next,
+            orderNumber++,
             this.animals,
             this.animalsRandomizer
           )
         )
-      );
+      )
     }
     return result.join("\n\n");
-
-    function verseNumber(verseRandomizer, i) {
-      return verseRandomizer ? verseRandomizer.next() : i;
-    }
 
     function verse(data) {
       return "Over in the meadow,\n" +
@@ -326,5 +325,14 @@ class Animals {
   constructor(mother, child) {
     this.mother = mother;
     this.child = child;
+  }
+}
+
+class AscendingOrder {
+  constructor() {
+    this.i = 0;
+  }
+  next(array) {
+    return this.i < array.length ? array[this.i++] : null;
   }
 }
