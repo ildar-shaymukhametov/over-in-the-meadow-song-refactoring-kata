@@ -23,7 +23,7 @@ export class Program {
       result.push(
         verse(
           this.verseDataFor(
-            verseNumber.call(this, i),
+            verseNumber(this.verseRandomizer, i),
             i
           )
         )
@@ -31,8 +31,8 @@ export class Program {
     }
     return result.join("\n\n");
 
-    function verseNumber(i) {
-      return this.verseRandomizer ? this.verseRandomizer.next() : i;
+    function verseNumber(verseRandomizer, i) {
+      return verseRandomizer ? verseRandomizer.next() : i;
     }
 
     function verse(data) {
