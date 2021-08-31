@@ -30,15 +30,14 @@ export class Program {
   }
 
   verse(verseNumber, orderNumber = verseNumber) {
-    const childrenCount = this.childrenCountFor(orderNumber);
-    const data = this.verseDataFor(verseNumber);
+    const data = this.verseDataFor(verseNumber, orderNumber);
 
     return "Over in the meadow,\n" +
       `${data.firstLocation()},\n` +
       `Lived ${data.mother()}\n` +
-      `And her little ${childrenCount.pluralize(data.child())} ${childrenCount}.\n` +
+      `And her little ${data.children()} ${data.childrenCount()}.\n` +
       `\"${capitalize(data.action())}!\" said the mother;\n` +
-      `\"${childrenCount.pronoun()} ${data.action()}!\" said the ${childrenCount}.\n` +
+      `\"${data.pronoun()} ${data.action()}!\" said the ${data.childrenCount()}.\n` +
       `So they ${data.actionDone()},\n` +
       `${data.secondLocation()}.`;
   }
@@ -52,7 +51,7 @@ export class Program {
 
     return new result(number);
   }
-  verseDataFor(number) {
+  verseDataFor(number, orderNumber) {
     var result;
     try {
       result = eval(`VerseData${number}`);
@@ -60,7 +59,7 @@ export class Program {
       result = VerseData;
     }
 
-    return new result(animal.call(this, number));
+    return new result(animal.call(this, number), this.childrenCountFor(orderNumber));
 
     function animal(number) {
       return this.animals[this.animalsRandomizer ? this.animalsRandomizer.next() : number - 1];
@@ -83,8 +82,9 @@ class Article {
 }
 
 class VerseData {
-  constructor(animals) {
+  constructor(animals, childrenCount) {
     this.animals = animals;
+    this._childrenCount = childrenCount;
   }
   firstLocation() {
     return this.location(true);
@@ -94,6 +94,15 @@ class VerseData {
   }
   child() {
     return this.animals.child;
+  }
+  children() {
+    return this._childrenCount.pluralize(this.animals.child);
+  }
+  childrenCount() {
+    return this._childrenCount;
+  }
+  pronoun() {
+    return this._childrenCount.pronoun();
   }
 }
 
