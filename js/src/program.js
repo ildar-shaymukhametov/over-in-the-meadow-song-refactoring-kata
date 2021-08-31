@@ -20,27 +20,33 @@ export class Program {
   song() {
     var result = [];
     for (let i = 1; i <= 10; i++) {
-      result.push(this.verse(verseNumber.call(this, i), i));
+      result.push(
+        verse(
+          this.verseDataFor(
+            verseNumber.call(this, i),
+            i
+          )
+        )
+      );
     }
     return result.join("\n\n");
 
     function verseNumber(i) {
       return this.verseRandomizer ? this.verseRandomizer.next() : i;
     }
+
+    function verse(data) {
+      return "Over in the meadow,\n" +
+        `${data.firstLocation()},\n` +
+        `Lived ${data.mother()}\n` +
+        `And her little ${data.children()} ${data.childrenCount()}.\n` +
+        `\"${capitalize(data.action())}!\" said the mother;\n` +
+        `\"${data.pronoun()} ${data.action()}!\" said the ${data.childrenCount()}.\n` +
+        `So they ${data.actionDone()},\n` +
+        `${data.secondLocation()}.`;
+    }
   }
 
-  verse(verseNumber, orderNumber = verseNumber) {
-    const data = this.verseDataFor(verseNumber, orderNumber);
-
-    return "Over in the meadow,\n" +
-      `${data.firstLocation()},\n` +
-      `Lived ${data.mother()}\n` +
-      `And her little ${data.children()} ${data.childrenCount()}.\n` +
-      `\"${capitalize(data.action())}!\" said the mother;\n` +
-      `\"${data.pronoun()} ${data.action()}!\" said the ${data.childrenCount()}.\n` +
-      `So they ${data.actionDone()},\n` +
-      `${data.secondLocation()}.`;
-  }
   childrenCountFor(number) {
     var result;
     try {
