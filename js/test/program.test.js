@@ -95,7 +95,7 @@ test("song", () => {
 })
 
 test("random verses", () => {
-  expect(new Program({ verseOrder: new StubRandomOrder() }).song()).toEqual(
+  expect(new Program({ verseOrder: new StubRandomOrder(), animalOrder: new StubRandomOrder() }).song()).toEqual(
     "Over in the meadow,\n" +
     "Where the stream runs blue,\n" +
     "Lived an old mother fish\n" +
@@ -189,7 +189,7 @@ test("random verses", () => {
 })
 
 test("random animals", () => {
-  expect(new Program({ animalsRandomizer: new StubAnimalRandomizer() }).song()).toEqual(
+  expect(new Program({ animalOrder: new StubRandomOrder() }).song()).toEqual(
     "Over in the meadow,\n" +
     "In the sand in the sun,\n" +
     "Lived an old mother fish\n" +
@@ -283,7 +283,7 @@ test("random animals", () => {
 })
 
 test("random animals and verses", () => {
-  expect(new Program({ animalsRandomizer: new StubAnimalRandomizer(), verseOrder: new StubRandomOrder() }).song()).toEqual(
+  expect(new Program({ verseOrder: new StubRandomOrder(), animalOrder: new StubRandomOrder() }).song()).toEqual(
     "Over in the meadow,\n" +
     "Where the stream runs blue,\n" +
     "Lived an old mother fish\n" +
@@ -375,20 +375,6 @@ test("random animals and verses", () => {
     "In their sly little den."
   );
 })
-
-class StubAnimalRandomizer {
-  constructor() {
-    this.numbers = [1, 0, 2, 3, 4, 5, 6, 7, 8, 9];
-    this.i = 0;
-  }
-  next() {
-    if (this.i <= 9) {
-      return this.numbers[this.i++];
-    } else {
-      return null;
-    }
-  }
-}
 
 class StubRandomOrder {
   constructor() {

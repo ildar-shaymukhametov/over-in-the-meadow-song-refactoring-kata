@@ -1,9 +1,9 @@
 const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
 
 export class Program {
-  constructor({ animalsRandomizer, verseOrder = new AscendingOrder() } = {}) {
-    this.animalsRandomizer = animalsRandomizer;
+  constructor({ verseOrder = new AscendingOrder(), animalOrder = new AscendingOrder() } = {}) {
     this.verseOrder = verseOrder;
+    this.animalOrder = animalOrder;
     this.animals = [
       new Animals("toadie", "toadie"),
       new Animals("fish", "fish"),
@@ -29,7 +29,7 @@ export class Program {
             next,
             orderNumber++,
             this.animals,
-            this.animalsRandomizer
+            this.animalOrder
           )
         )
       )
@@ -47,7 +47,7 @@ export class Program {
         `${data.secondLocation()}.`;
     }
 
-    function verseDataFor(number, orderNumber, animals, animalsRandomizer) {
+    function verseDataFor(number, orderNumber, animals, animalOrder) {
       var result;
       try {
         result = eval(`VerseData${number}`);
@@ -55,11 +55,7 @@ export class Program {
         result = VerseData;
       }
 
-      return new result(animal(), ChildrenCount.for(orderNumber));
-
-      function animal() {
-        return animals[animalsRandomizer ? animalsRandomizer.next() : number - 1];
-      }
+      return new result(animalOrder.next(animals), ChildrenCount.for(orderNumber));
     }
   }
 }
