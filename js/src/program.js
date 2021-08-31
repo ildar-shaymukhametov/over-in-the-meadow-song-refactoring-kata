@@ -1,4 +1,19 @@
 const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
+const toWord = number => {
+  switch (number) {
+    case 1: return "one";
+    case 2: return "two";
+    case 3: return "three";
+    case 4: return "four";
+    case 5: return "five";
+    case 6: return "six";
+    case 7: return "seven";
+    case 8: return "eight";
+    case 9: return "nine";
+    case 10: return "ten";
+    default: return "";
+  }
+};
 
 export class Program {
   constructor({ verseOrder = new AscendingOrder(), animalOrder = new AscendingOrder() } = {}) {
@@ -26,8 +41,7 @@ export class Program {
       result.push(
         verse(
           new (dataClassFor(next))(
-            this.animalOrder.next(this.animals),
-            ChildrenCount.for(orderNumber++)
+            new AnimalFamily(orderNumber++, this.animalOrder.next(this.animals))
           )
         )
       )
@@ -59,9 +73,8 @@ export class Program {
 }
 
 class VerseData {
-  constructor(animals, childrenCount) {
-    this.animals = animals;
-    this._childrenCount = childrenCount;
+  constructor(animalFamily) {
+    this.animalFamily = animalFamily;
   }
   firstLocation() {
     return this.location("a");
@@ -69,17 +82,14 @@ class VerseData {
   secondLocation() {
     return this.location("their");
   }
-  child() {
-    return this.animals.child;
-  }
   children() {
-    return this._childrenCount.pluralize(this.animals.child);
+    return this.animalFamily.children();
   }
   childrenCount() {
-    return this._childrenCount;
+    return this.animalFamily.count();
   }
   pronoun() {
-    return this._childrenCount.pronoun();
+    return this.animalFamily.pronoun();
   }
 }
 
@@ -94,7 +104,7 @@ class VerseData10 extends VerseData {
     return `In ${article} sly little den`;
   }
   mother() {
-    return `a gray mother ${this.animals.mother}`;
+    return `a gray mother ${this.animalFamily.mother()}`;
   }
 }
 
@@ -109,7 +119,7 @@ class VerseData1 extends VerseData {
     return "In the sand in the sun";
   }
   mother() {
-    return `an old mother ${this.animals.mother}`;
+    return `an old mother ${this.animalFamily.mother()}`;
   }
 }
 
@@ -124,7 +134,7 @@ class VerseData2 extends VerseData {
     return "Where the stream runs blue";
   }
   mother() {
-    return `an old mother ${this.animals.mother}`;
+    return `an old mother ${this.animalFamily.mother()}`;
   }
 }
 
@@ -139,7 +149,7 @@ class VerseData3 extends VerseData {
     return `In ${article} hole in a tree`;
   }
   mother() {
-    return `an old mother ${this.animals.mother}`;
+    return `an old mother ${this.animalFamily.mother()}`;
   }
 }
 class VerseData4 extends VerseData {
@@ -153,7 +163,7 @@ class VerseData4 extends VerseData {
     return "By the reeds on the shore";
   }
   mother() {
-    return `an old mother ${this.animals.mother}`;
+    return `an old mother ${this.animalFamily.mother()}`;
   }
 }
 class VerseData5 extends VerseData {
@@ -167,7 +177,7 @@ class VerseData5 extends VerseData {
     return `In ${article} snug beehive`;
   }
   mother() {
-    return `a mother honey ${this.animals.mother}`;
+    return `a mother honey ${this.animalFamily.mother()}`;
   }
 }
 class VerseData6 extends VerseData {
@@ -181,7 +191,7 @@ class VerseData6 extends VerseData {
     return `In ${article} nest made of sticks`;
   }
   mother() {
-    return `a black mother ${this.animals.mother}`;
+    return `a black mother ${this.animalFamily.mother()}`;
   }
 }
 class VerseData7 extends VerseData {
@@ -195,7 +205,7 @@ class VerseData7 extends VerseData {
     return "In the grass soft and even";
   }
   mother() {
-    return `a mother ${this.animals.mother}`;
+    return `a mother ${this.animalFamily.mother()}`;
   }
 }
 class VerseData8 extends VerseData {
@@ -209,7 +219,7 @@ class VerseData8 extends VerseData {
     return "On the old mossy gate";
   }
   mother() {
-    return `a brown mother ${this.animals.mother}`;
+    return `a brown mother ${this.animalFamily.mother()}`;
   }
 }
 class VerseData9 extends VerseData {
@@ -223,82 +233,30 @@ class VerseData9 extends VerseData {
     return "Where the cool pools shine";
   }
   mother() {
-    return `a green mother ${this.animals.mother}`;
-  }
-}
-class ChildrenCount {
-  pronoun() {
-    return "We";
-  }
-  pluralize(child) {
-    return `${child}${child.endsWith("sh") ? "es" : "s"}`;
-  }
-  static for(number) {
-    var result;
-    try {
-      result = eval(`ChildrenCount${number}`);
-    } catch (error) {
-      result = ChildrenCount;
-    }
-
-    return new result(number);
+    return `a green mother ${this.animalFamily.mother()}`;
   }
 }
 
-class ChildrenCount2 extends ChildrenCount {
-  toString() {
-    return "two";
-  }
-}
-class ChildrenCount3 extends ChildrenCount {
-  toString() {
-    return "three";
-  }
-}
-class ChildrenCount4 extends ChildrenCount {
-  toString() {
-    return "four";
-  }
-}
-class ChildrenCount5 extends ChildrenCount {
-  toString() {
-    return "five";
-  }
-}
-class ChildrenCount6 extends ChildrenCount {
-  toString() {
-    return "six";
-  }
-}
-class ChildrenCount7 extends ChildrenCount {
-  toString() {
-    return "seven";
-  }
-}
-class ChildrenCount8 extends ChildrenCount {
-  toString() {
-    return "eight";
-  }
-}
-class ChildrenCount9 extends ChildrenCount {
-  toString() {
-    return "nine";
-  }
-}
-class ChildrenCount10 extends ChildrenCount {
-  toString() {
-    return "ten";
-  }
-}
-class ChildrenCount1 extends ChildrenCount {
-  toString() {
-    return "one";
+class AnimalFamily {
+  constructor(childrenCount, animals) {
+    this.childrenCount = childrenCount;
+    this.animals = animals;
   }
   pronoun() {
-    return "I";
+    return this.childrenCount == 1 ? "I" : "We";
   }
-  pluralize(child) {
-    return child;
+  children() {
+    return `${this.animals.child}${this.childrenCount == 1 ? "" : ending(this.animals.child)}`;
+      
+      function ending(word) {
+        return word.endsWith("sh") ? "es" : "s";
+      }
+  }
+  count() {
+    return toWord(this.childrenCount);
+  }
+  mother() {
+    return this.animals.mother;
   }
 }
 
