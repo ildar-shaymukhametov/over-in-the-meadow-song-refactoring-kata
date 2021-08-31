@@ -41,7 +41,7 @@ export class Program {
       result.push(
         verse(
           new (dataClassFor(next))(
-            new AnimalFamily(orderNumber++, this.animalOrder.next(this.animals))
+            new (animalFamilyClassFor(orderNumber++))(this.animalOrder.next(this.animals))
           )
         )
       )
@@ -68,6 +68,10 @@ export class Program {
       }
 
       return result;
+    }
+    function animalFamilyClassFor(childrenCount) {
+      var result = childrenCount == 1 ? AnimalFamilyOneChild : AnimalFamily;
+      return result.bind(null, childrenCount);
     }
   }
 }
@@ -243,11 +247,11 @@ class AnimalFamily {
     this.animals = animals;
   }
   pronoun() {
-    return this.childrenCount == 1 ? "I" : "We";
+    return "We";
   }
   children() {
-    return `${this.animals.child}${this.childrenCount == 1 ? "" : ending(this.animals.child)}`;
-      
+    return `${this.animals.child}${ending(this.animals.child)}`;
+
       function ending(word) {
         return word.endsWith("sh") ? "es" : "s";
       }
@@ -257,6 +261,18 @@ class AnimalFamily {
   }
   mother() {
     return this.animals.mother;
+  }
+}
+
+class AnimalFamilyOneChild extends AnimalFamily {
+  pronoun() {
+    return "I";
+  }
+  children() {
+    return this.animals.child;
+  }
+  count() {
+    return "one";
   }
 }
 
