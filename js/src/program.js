@@ -25,11 +25,9 @@ export class Program {
     while ((next = this.verseOrder.next(this.verses)) !== null) {
       result.push(
         verse(
-          verseDataFor(
-            next,
-            orderNumber++,
-            this.animals,
-            this.animalOrder
+          new (dataClassFor(next))(
+            this.animalOrder.next(this.animals),
+            ChildrenCount.for(orderNumber++)
           )
         )
       )
@@ -47,7 +45,7 @@ export class Program {
         `${data.secondLocation()}.`;
     }
 
-    function verseDataFor(number, orderNumber, animals, animalOrder) {
+    function dataClassFor(number) {
       var result;
       try {
         result = eval(`VerseData${number}`);
@@ -55,7 +53,7 @@ export class Program {
         result = VerseData;
       }
 
-      return new result(animalOrder.next(animals), ChildrenCount.for(orderNumber));
+      return result;
     }
   }
 }
