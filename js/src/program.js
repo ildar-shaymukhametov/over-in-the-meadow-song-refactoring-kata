@@ -1,4 +1,5 @@
 const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
+const ending = word => word.endsWith("sh") ? "es" : "s"
 const toWord = number => {
   switch (number) {
     case 1: return "one";
@@ -251,10 +252,6 @@ class AnimalFamily {
   }
   children() {
     return `${this.animals.child}${ending(this.animals.child)}`;
-
-      function ending(word) {
-        return word.endsWith("sh") ? "es" : "s";
-      }
   }
   count() {
     return toWord(this.childrenCount);
